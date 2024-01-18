@@ -1,18 +1,22 @@
-# first_name = "John"
-# last_name = "Plough"
-# print(first_name + ' ' + last_name)
+# name = input("Please enter a name: ")
+# if name != 'Santa':
+#     print("You're not Santa!")
+# else:
+#     print("Santa!")
 
-# f_name = 'john'
-# l_name = 'plough'
-# print(f"{f_name} {l_name}")
+# title = 'The Book'
+# author = 'Drew Tingston'
+# print(title + ' was written by ' + author + '.')
 
-# word = input('Please input a word: ')
-# if word == 'marco':
-#     print('polo')
+# print(f"It's easier to reference {title} by {author} with string interpolation.")
 
-color1 = 'green'
-color2 = 'blue'
-color3 = 'lilac'
-print("My fav colors are " + color1 + ", " + color2 + ", and " + color3 + ".")
+# pw = input('Please enter a password: ')
+# if pw == 'Joshua':
+#     print('Shall we play a game?')
+# else:
+#     print("Access denied")
 
-print(f"I'll have {color1}, {color2}, and {color3}, please.")
+city1 = 'Austin'
+city2 = 'Boston'
+city3 = 'Calgary'
+print(f"I'd like to visit {city1}, {city2}, and {city3}.")
