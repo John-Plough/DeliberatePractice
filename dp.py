@@ -1,93 +1,44 @@
-# 02-conditionals3.md
+weight = float(input('How many pounds does your package weigh? '))
 
-# Write a program that stores a customer's age and a movie's time in two separate variables. Then calculate the price of a movie ticket based on the following conditions:
-
-# If the age is 12 years old or younger, the ticket price is $5.
-# If the age is between 13 and 59 years old and the movie is before 6 PM, the ticket price is $7. After 6 PM, the ticket price is $10.
-# If the customer is 60 years old or older, the ticket price is $7.
-
-age = 62
-time = 6
-
-if age <= 12:
-    price = 5
-elif age <= 59:
-    if time < 6:
-        price = 7
-    else:
-        price = 10
+#ground shipping
+if weight <= 2:
+    gs_price = 20.00 + (weight * 1.50)
+elif weight <= 6:
+    gs_price = 20.00 + (weight * 3.00)
+elif weight <= 10:
+    gs_price = 20.00 + (weight * 4.00)
 else:
-    price = 7
+    gs_price = 20.00 + (weight * 4.75)
 
-print(price)
+#ground shipping premium
+gsp_price = 125.00
 
-# Write a program to store the type of book (regular, reference, or special collection) and the number of days its overdue. Then calculate the fine amount based on the following conditions:
-
-# If the book is a regular book and overdue by up to 7 days, the fine is $1 per day.
-# If the book is a regular book and overdue by more than 7 days, the fine is $2 per day.
-# If the book is a reference book, there is no fine, regardless of the number of days overdue.
-# If the book is a special collection book, the fine is $5 per day, regardless of the number of days overdue.
-
-kind = 'googly'
-days = 8
-
-if kind == 'regular':
-    if days <= 7:
-        fine = days
-    else:
-        fine = 2 * days
-elif kind == 'reference':
-    fine = 0
+#drone shipping
+if weight <= 2:
+    ds_price = weight * 4.50
+elif weight <= 6:
+    ds_price = weight * 9.00
+elif weight <= 10:
+    ds_price = weight * 12.00
 else:
-    fine = 5 * days
-    
-print(fine)
+    ds_price = weight * 14.25
+ds_price = round(ds_price, 2)
 
-# Write a program that stores a person's order value and membership level (regular or premium). Then calculate a discount amount based on the following conditions:
+shipping_options = [gs_price, gsp_price, ds_price]
+shipping_options.sort() #sorted list of prices
 
-# If the total order value is less than $50, there is no discount.
-# If the total order value is between $50 and $100, the discount is 5% for regular customers and 10% for premium customers.
-# If the total order value is greater than $100, the discount is 10% for regular customers and 15% for premium customers.
+print()
 
-value = 200
-level = 'premium'
+print(f"A package that weighs {weight} pounds will cost: \n${gs_price} with Ground Shipping\n${gsp_price} with Ground Shipping 'Premium'\n${ds_price} with Drone Shipping")
 
-if value < 50:
-    discount = 0
-elif value <= 100:
-    if level == 'regular':
-        discount = .05 * value
-    else:
-        discount = .10 * value
+print()
+
+if shipping_options[0] == gs_price:
+    method = 'ground shipping'
+elif shipping_options[0] == gsp_price:
+    method = 'ground shipping premium'
 else:
-    if level == 'regular':
-        discount = .10 * value
-    else:
-        discount = .15 * value
+    method = 'drone shipping'
 
-print(discount)
 
-# Write a Ruby program that stores the weight of a package and the destination (domestic or international). Then calculate the shipping fee based on the following conditions:
-
-# If the destination is domestic:
-# If the weight is less than or equal to 1 kg, the shipping fee is $5.
-# If the weight is greater than 1 kg, the shipping fee is $10.
-# If the destination is an international shipment:
-# If the weight is less than or equal to 1 kg, the shipping fee is $15.
-# If the weight is greater than 1 kg, the shipping fee is $25.
-
-weight = 1.4
-destination = 'domestic'
-
-if destination == 'international':
-    if weight <= 1:
-        fee = 5
-    else:
-        fee = 10
-else:
-    if weight <= 1:
-        fee = 15
-    else:
-        fee = 25
-
-print(fee)
+print(f"The cheapest method to ship your item is using {method.title()}. It will cost ${shipping_options[0]}.")
