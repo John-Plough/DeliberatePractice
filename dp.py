@@ -1,115 +1,93 @@
-# 02-conditionals1.md
+# 02-conditionals3.md
 
-# # Use a variable to store a number, then write a condition that prints 0 if the number is equal to 10, and prints -1 otherwise.
+# Write a program that stores a customer's age and a movie's time in two separate variables. Then calculate the price of a movie ticket based on the following conditions:
 
-# num = 8
-# if num == 10:
-#     print(0)
-# else:
-#     print(-1)
+# If the age is 12 years old or younger, the ticket price is $5.
+# If the age is between 13 and 59 years old and the movie is before 6 PM, the ticket price is $7. After 6 PM, the ticket price is $10.
+# If the customer is 60 years old or older, the ticket price is $7.
 
-# # Use a variable to store a number, then write a condition that prints -1 if the number is less than 10, prints 1 if the number is greater than 10, and prints 0 if the number is equal to 10.
+age = 62
+time = 6
+
+if age <= 12:
+    price = 5
+elif age <= 59:
+    if time < 6:
+        price = 7
+    else:
+        price = 10
+else:
+    price = 7
+
+print(price)
+
+# Write a program to store the type of book (regular, reference, or special collection) and the number of days its overdue. Then calculate the fine amount based on the following conditions:
+
+# If the book is a regular book and overdue by up to 7 days, the fine is $1 per day.
+# If the book is a regular book and overdue by more than 7 days, the fine is $2 per day.
+# If the book is a reference book, there is no fine, regardless of the number of days overdue.
+# If the book is a special collection book, the fine is $5 per day, regardless of the number of days overdue.
+
+kind = 'googly'
+days = 8
+
+if kind == 'regular':
+    if days <= 7:
+        fine = days
+    else:
+        fine = 2 * days
+elif kind == 'reference':
+    fine = 0
+else:
+    fine = 5 * days
     
-# num = 4
-# if num < 10:
-#     print(-1)
-# elif num > 10:
-#     print(1)
-# else:
-#     print(0)
+print(fine)
 
-# # Use variables to store two numbers, then write a condition that prints 1 if the numbers are both less than 10, and prints 0 otherwise.
+# Write a program that stores a person's order value and membership level (regular or premium). Then calculate a discount amount based on the following conditions:
 
-# num1 = 5
-# num2 = 8
-# if num1 < 10 and num2 < 10:
-#     print(1)
-# else:
-#     print(0)
+# If the total order value is less than $50, there is no discount.
+# If the total order value is between $50 and $100, the discount is 5% for regular customers and 10% for premium customers.
+# If the total order value is greater than $100, the discount is 10% for regular customers and 15% for premium customers.
 
-# # Use a variable to store a number, then write a condition that prints 1 if the number is over 9000, and prints -1 otherwise.
+value = 200
+level = 'premium'
 
-# num = 100
-# if num > 9000:
-#     print(1)
-# else:
-#     print(-1)
-
-# # Use a variable to store a number, then write a condition that prints 9 if the number is less than 10, prints 19 if the number is less than 20, prints 29 if the number is less than 30, and prints -1 otherwise (only one print statement should occur).
-
-# num = 15
-# if num < 10:
-#     print(9)
-# elif num < 20:
-#     print(19)
-# elif num < 30:
-#     print(29)
-# else:
-#     print(-1)
-
-# Use variables to store two numbers, then write a condition that prints 100 if either number is greater than 10, and prints -100 otherwise.
-
-num1 = 12
-num2 = 8
-if num1 > 10 or num2 > 10:
-    print(100)
+if value < 50:
+    discount = 0
+elif value <= 100:
+    if level == 'regular':
+        discount = .05 * value
+    else:
+        discount = .10 * value
 else:
-    print(-100)
+    if level == 'regular':
+        discount = .10 * value
+    else:
+        discount = .15 * value
 
-# Use a variable to store a number, then write a condition that prints 1776 if the number is less than 0, and prints 1979 otherwise.
+print(discount)
 
-num = 1500
-if num < 0:
-    print(1776)
+# Write a Ruby program that stores the weight of a package and the destination (domestic or international). Then calculate the shipping fee based on the following conditions:
+
+# If the destination is domestic:
+# If the weight is less than or equal to 1 kg, the shipping fee is $5.
+# If the weight is greater than 1 kg, the shipping fee is $10.
+# If the destination is an international shipment:
+# If the weight is less than or equal to 1 kg, the shipping fee is $15.
+# If the weight is greater than 1 kg, the shipping fee is $25.
+
+weight = 1.4
+destination = 'domestic'
+
+if destination == 'international':
+    if weight <= 1:
+        fee = 5
+    else:
+        fee = 10
 else:
-    print(1979)
+    if weight <= 1:
+        fee = 15
+    else:
+        fee = 25
 
-# Use a variable to store a number, then write a condition that prints 100 if the number equals 100, prints 99 if the number is equal to 99, and prints 0 otherwise.
-
-num = 100
-if num == 100:
-    print(100)
-elif num == 99:
-    print(99)
-else:
-    print(0)
-
-# Use variables to store two numbers, then write a condition that prints 1 if the first number is less than zero and the second number is greater than 0, and prints 0 otherwise.
-
-num1 = -4
-num2 = 4
-if num1 < 0 and num2 > 0:
-    print(1)
-else:
-    print(0)
-
-# Use a variable to store a number, then write a condition that prints 5 if the number is greater than 80, prints 4 if the number is greater than 60, prints 3 if the number is greater than 40, prints 2 if the number is greater than 20, and prints 1 otherwise (only one print statement should occur).
-
-num = 65
-if num > 80:
-    print(5)
-elif num > 60:
-    print(4)
-elif num > 40:
-    print(3)
-elif num > 20:
-    print(2)
-else:
-    print(1)
-
-
-# def in_list(strings, str):
-#     print('John')
-#     # if str in strings:
-#     #     return strings.index(str)
-#     for index, word in enumerate(strings):
-#         if word == str:    
-#             return index
-#     return -1
-    
-# print(in_list(['hi', 'bye'], 'bye'))
-
-# print(type(list(range(3))))
-
-# for idx, color in ["red", "green", "blue"]:
-#   print(color, idx)
+print(fee)
