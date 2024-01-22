@@ -1,44 +1,80 @@
-weight = float(input('How many pounds does your package weigh? '))
+# 03-loops1.md
 
-#ground shipping
-if weight <= 2:
-    gs_price = 20.00 + (weight * 1.50)
-elif weight <= 6:
-    gs_price = 20.00 + (weight * 3.00)
-elif weight <= 10:
-    gs_price = 20.00 + (weight * 4.00)
-else:
-    gs_price = 20.00 + (weight * 4.75)
+# Write a while loop to print the numbers 1 through 10.
 
-#ground shipping premium
-gsp_price = 125.00
+# for num in range(1, 11):
+#     print(num)
 
-#drone shipping
-if weight <= 2:
-    ds_price = weight * 4.50
-elif weight <= 6:
-    ds_price = weight * 9.00
-elif weight <= 10:
-    ds_price = weight * 12.00
-else:
-    ds_price = weight * 14.25
-ds_price = round(ds_price, 2)
+# i = 1
+# while i < 11:
+#     print(i) 
+#     i += 1
 
-shipping_options = [gs_price, gsp_price, ds_price]
-shipping_options.sort() #sorted list of prices
+# Write a while loop that prints the word "hello" 5 times.
 
-print()
+# i = 1
+# while i <= 5:
+#     print('hello')
+#     i += 1
 
-print(f"A package that weighs {weight} pounds will cost: \n${gs_price} with Ground Shipping\n${gsp_price} with Ground Shipping 'Premium'\n${ds_price} with Drone Shipping")
+# Write a while loop that asks the user to enter a word and will run forever until the user enters the word "stop".
 
-print()
+# while True:
+#     word = input("Enter a word: ")
+#     if word == 'stop':
+#         break
 
-if shipping_options[0] == gs_price:
-    method = 'ground shipping'
-elif shipping_options[0] == gsp_price:
-    method = 'ground shipping premium'
-else:
-    method = 'drone shipping'
+# Write a while loop that prints the numbers 0 through 100, increasing by 5 each time.
 
+# num = 0
+# while num <= 100:
+#     print(num)
+#     num += 5
 
-print(f"The cheapest method to ship your item is using {method.title()}. It will cost ${shipping_options[0]}.")
+# Write a while loop that prints the number 9000 ten times.
+
+# count = 1
+# while count <= 10:
+#     print(9000)
+#     count += 1
+
+# Write a while loop that asks the user to enter a number and will run forever until the user enters a number greater than 10.
+
+# while True:
+#     num = int(input("Enter a number: "))
+#     if num > 10:
+#         break
+
+# Write a while loop that prints the numbers 50 to 70.
+
+# num = 50
+# while num <= 70:
+#     print(num)
+#     num += 1
+
+# Write a while loop that prints the phrase "Around the world" 144 times.
+
+# count = 1
+# while count <= 144:
+#     print('Around the world')
+#     count += 1
+
+# Write a while loop that asks the user to enter a word and will run forever until the user enters a word with more than 5 letters.
+
+# while True:
+#     word = input('Enter a word: ')
+#     if len(word) > 5:
+#         break
+
+# Write a while loop that prints the even numbers from 2 to 40.
+
+# num = 2
+# while num <= 40:
+#     print(num)
+#     num += 2
+
+# num = 1
+# while num <= 40:
+#     if num % 2 == 0:
+#         print(num)
+#     num += 1
