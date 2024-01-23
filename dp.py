@@ -1,80 +1,94 @@
-# 03-loops1.md
+# 03-loops2.md
 
-# Write a while loop to print the numbers 1 through 10.
+# Start with an array of numbers and create a new array with each number times 3.
+# For example, [1, 2, 3] becomes [3, 6, 9].
 
-# for num in range(1, 11):
-#     print(num)
+# arr = [1,2,3,4]
 
-# i = 1
-# while i < 11:
-#     print(i) 
-#     i += 1
+# new_arr = []
+# for num in arr:
+#     new_arr.append(num * 3)
 
-# Write a while loop that prints the word "hello" 5 times.
+# tripled = [num * 3 for num in arr]
 
-# i = 1
-# while i <= 5:
-#     print('hello')
-#     i += 1
+# print(new_arr)
+# print(tripled)
 
-# Write a while loop that asks the user to enter a word and will run forever until the user enters the word "stop".
+# Start with an array of strings and create a new array with each string upcased.
+# For example, ["hello", "goodbye"] becomes ["HELLO", "GOODBYE"].
 
-# while True:
-#     word = input("Enter a word: ")
-#     if word == 'stop':
-#         break
+# animals = ['panda', 'koala', 'otter']
 
-# Write a while loop that prints the numbers 0 through 100, increasing by 5 each time.
+# shouting_animals = [animal.upper() for animal in animals]
+# print(shouting_animals)
 
-# num = 0
-# while num <= 100:
-#     print(num)
-#     num += 5
+# Start with an array of hashes and create a new array of string values from each hash's :name key.
+# For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes ["Alice", "Blane"].
 
-# Write a while loop that prints the number 9000 ten times.
+# animals = [
+#     {'name': 'ned', 'animal': 'panda'},
+#     {'name': 'frank', 'animal': 'koala'},
+#     {'name': 'kevin', 'animal': 'otter'},
+# ]
 
-# count = 1
-# while count <= 10:
-#     print(9000)
-#     count += 1
+# names = [animal['name'] for animal in animals]
+# print(names)
 
-# Write a while loop that asks the user to enter a number and will run forever until the user enters a number greater than 10.
+# Start with an array of numbers and create a new array with each number plus 7.
+# For example, [1, 2, 3] becomes [8, 9, 10].
 
-# while True:
-#     num = int(input("Enter a number: "))
-#     if num > 10:
-#         break
+# arr = [1,2,3,4]
+# sevened = [num + 7 for num in arr]
+# print(sevened)
 
-# Write a while loop that prints the numbers 50 to 70.
+# Start with an array of strings and create a new array with each string's length.
+# For example, ["hello", "goodbye"] becomes [5, 7].
 
-# num = 50
-# while num <= 70:
-#     print(num)
-#     num += 1
+# animals = ['panda', 'koala', 'otter']
+# length = [len(animal) for animal in animals]
+# print(length)
 
-# Write a while loop that prints the phrase "Around the world" 144 times.
+# Start with an array of hashes and create a new array of number values from each hash's :age key.
+# For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [27, 16].
 
-# count = 1
-# while count <= 144:
-#     print('Around the world')
-#     count += 1
+# animals = [
+#     {'name': 'ned', 'animal': 'panda', 'age': 7},
+#     {'name': 'frank', 'animal': 'koala', 'age': 4},
+#     {'name': 'kevin', 'animal': 'otter', 'age': 9},
+# ]
 
-# Write a while loop that asks the user to enter a word and will run forever until the user enters a word with more than 5 letters.
+# ages = [animal['age'] for animal in animals]
+# print(ages)
 
-# while True:
-#     word = input('Enter a word: ')
-#     if len(word) > 5:
-#         break
+# Start with an array of numbers and create a new array with each number divided by 2.
+# For example, [1, 2, 3] becomes [0.5, 1.0, 1.5].
 
-# Write a while loop that prints the even numbers from 2 to 40.
+# arr = [1,2,3,4]
+# halved = [num / 2 for num in arr]
+# print(halved)
 
-# num = 2
-# while num <= 40:
-#     print(num)
-#     num += 2
+# Start with an array of strings and create a new array with each string's first letter only.
+# For example, ["hello", "goodbye"] becomes ["h", "g"].
 
-# num = 1
-# while num <= 40:
-#     if num % 2 == 0:
-#         print(num)
-#     num += 1
+# animals = ['panda', 'koala', 'otter']
+# first_only = [animal[0] for animal in animals]
+# print(first_only)
+
+# Start with an array of hashes and create a new array of number values from each hash's :age key times 2.
+# For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [54, 32].
+
+# animals = [
+#     {'name': 'ned', 'animal': 'panda', 'age': 7},
+#     {'name': 'frank', 'animal': 'koala', 'age': 4},
+#     {'name': 'kevin', 'animal': 'otter', 'age': 9},
+# ]
+    
+# age_doubled = [animal['age'] * 2 for animal in animals]
+# print(age_doubled)
+
+# Start with an array of numbers and create a new array with each number converted into a string.
+# For example, [1, 2, 3] becomes ["1", "2", "3"].
+
+# arr = [1,2,3,4]
+# str_of_num = [str(num) for num in arr]
+# print(str_of_num)
