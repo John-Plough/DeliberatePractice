@@ -1,219 +1,163 @@
-from itertools import chain
-# 03-loops2.md
+# def filter_list(l):
+#     return [el for el in l if isinstance(el, int)]
 
-# Start with an array of numbers and create a new array with each number times 3.
-# For example, [1, 2, 3] becomes [3, 6, 9].
-
-# arr = [1,2,3,4]
-
-# new_arr = []
-# for num in arr:
-#     new_arr.append(num * 3)
-
-# tripled = [num * 3 for num in arr]
-
-# print(new_arr)
-# print(tripled)
-
-# Start with an array of strings and create a new array with each string upcased.
-# For example, ["hello", "goodbye"] becomes ["HELLO", "GOODBYE"].
-
-# animals = ['panda', 'koala', 'otter']
-
-# shouting_animals = [animal.upper() for animal in animals]
-# print(shouting_animals)
-
-# Start with an array of hashes and create a new array of string values from each hash's :name key.
-# For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes ["Alice", "Blane"].
-
-# animals = [
-#     {'name': 'ned', 'animal': 'panda'},
-#     {'name': 'frank', 'animal': 'koala'},
-#     {'name': 'kevin', 'animal': 'otter'},
-# ]
-
-# names = [animal['name'] for animal in animals]
-# print(names)
-
-# Start with an array of numbers and create a new array with each number plus 7.
-# For example, [1, 2, 3] becomes [8, 9, 10].
-
-# arr = [1,2,3,4]
-# sevened = [num + 7 for num in arr]
-# print(sevened)
-
-# Start with an array of strings and create a new array with each string's length.
-# For example, ["hello", "goodbye"] becomes [5, 7].
-
-# animals = ['panda', 'koala', 'otter']
-# length = [len(animal) for animal in animals]
-# print(length)
-
-# Start with an array of hashes and create a new array of number values from each hash's :age key.
-# For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [27, 16].
-
-# animals = [
-#     {'name': 'ned', 'animal': 'panda', 'age': 7},
-#     {'name': 'frank', 'animal': 'koala', 'age': 4},
-#     {'name': 'kevin', 'animal': 'otter', 'age': 9},
-# ]
-
-# ages = [animal['age'] for animal in animals]
-# print(ages)
-
-# Start with an array of numbers and create a new array with each number divided by 2.
-# For example, [1, 2, 3] becomes [0.5, 1.0, 1.5].
-
-# arr = [1,2,3,4]
-# halved = [num / 2 for num in arr]
-# print(halved)
-
-# Start with an array of strings and create a new array with each string's first letter only.
-# For example, ["hello", "goodbye"] becomes ["h", "g"].
-
-# animals = ['panda', 'koala', 'otter']
-# first_only = [animal[0] for animal in animals]
-# print(first_only)
-
-# Start with an array of hashes and create a new array of number values from each hash's :age key times 2.
-# For example, [{name: "Alice", age: 27}, {name: "Blane", age: 16}] becomes [54, 32].
-
-# animals = [
-#     {'name': 'ned', 'animal': 'panda', 'age': 7},
-#     {'name': 'frank', 'animal': 'koala', 'age': 4},
-#     {'name': 'kevin', 'animal': 'otter', 'age': 9},
-# ]
+# def sale_hotdogs(n):
+#     return n * (100 if n < 5 else 95 if n < 10 else 90)
     
-# age_doubled = [animal['age'] * 2 for animal in animals]
-# print(age_doubled)
+    # if n < 5:
+    #     return 100
+    # elif n < 10:
+    #     return 95
+    # else:
+    #     return 90
 
-# Start with an array of numbers and create a new array with each number converted into a string.
-# For example, [1, 2, 3] becomes ["1", "2", "3"].
+# def powers_of_two(n):
+#     return [2**num for num in range(0, n + 1)]
+        
+# def expanded_form(num): # 42
+    #make str --> '42'
+    #loop backwards 10 % int(str[-1])
+    #   100 % int(str[-2])
 
-# arr = [1,2,3,4]
-# str_of_num = [str(num) for num in arr]
-# print(str_of_num)
+# def expanded_form(num):
+#     stringed = str(num)
+#     result = ''
 
-# animals = [
-#     {'name': 'ned', 'animal': 'panda', 'age': 7},
-#     {'name': 'frank', 'animal': 'koala', 'age': 4},
-#     {'name': 'kevin', 'animal': 'otter', 'age': 9},
-# ]
+#     for digit in stringed:
+#         result += f"{digit} + "
+#     print(result[:-3])
 
-# for animal in animals:
-#     for value in animal.values():
-#         print(value)
+# expanded_form(42)
 
-# frank = {'name': 'frank', 'animal': 'koala', 'age': 4}
+# def expanded_form(num):
+#     num = list(str(num))
+#     return ' + '.join(x + '0' * (len(num) - y - 1) for y,x in enumerate(num) if x != '0')
 
-# for val in frank.values():
-#     print(val)
+# def expanded_form(num):
+#     num = list(str(num)) #num is a list of each digit as a str
+#                          # --> ['7', '9', '2', '6']
+#     return ' + '.join(x + '0' * (len(num) - 1 - y) for y,x in enumerate(num))
 
-# for item in frank.items():
-#     print(item)
 
-# for k, v in frank.items():
-    # print(f"key is: {k} | value is: {v}")
+# print(isinstance((expanded_form(7926)), str))
 
-donations = dict(sam=25.0, lena=88.99, chuck=13.0, linus=99.5, stan=150.0, lisa=50.25, harrison=10.0)
+# def expanded_form(num):
+#     num = str(num)
+#     return ' + '.join(idx + '0' * (len(num) - digit) for digit,idx in enumerate(num, 1) if idx != '0')
 
-total_donations = 0
-for v in donations.values():
-    total_donations += v
+# print(expanded_form(5382))
 
-# print(total_donations)
+# def expanded_form(num):
+#     return ' + '.join(idx + '0' * (len(str(num)) - digit) for digit,idx in enumerate(str(num), 1) if idx != '0')
 
-# print('sam' in donations)
-# print('chuck' in donations)
-# print('li' in donations)
-# print(25 in donations.values())
-# print(13 in donations.values())
-# print(400 in donations.values())
+# print(expanded_form(98754321))
 
-# print(donations)
-# donations.clear()
-# print(donations)
+# def solution(string):
+#     return string[::-1]
+
+# def square(n):
+#     return n**2
+
+# def is_anagram(test, original):
+#     test_dict = {}
+#     orig_dict = {}
     
-game_properties = ["current_score", "high_score", "number_of_lives", "items_in_inventory", "power_ups", "ammo", "enemies_on_screen", "enemy_kills", "enemy_kill_streaks", "minutes_played", "notifications", "achievements"] 
+#     for char in test.lower():
+#         if char in test_dict:
+#             test_dict[char] += 1
+#         else:
+#             test_dict[char] = 1
+
+#     for char in original.lower():
+#         if char in orig_dict:
+#             orig_dict[char] += 1
+#         else:
+#             orig_dict[char] = 1
+            
+#     return test_dict == orig_dict
+
+# def is_anagram(test, original):
+#     both = test + original
+#     for char in both:
+#         if test.lower().count(char) == original.lower().count(char):
+#             continue
+#         else:
+#             return False
+#     return True
+
+# def is_anagram(test, original):
+#     print(sorted(test.lower()) == sorted(original.lower()))
+
+# is_anagram("foefet", "toffee")
+# is_anagram("Buckethead", "DeathCubeK")
+# is_anagram("beauty", "eauty")
+# is_anagram("eauty", "beauty")
+# is_anagram("Shops", "sHops")
+
+# print(sorted('johnnyplough'))
+
+# def fake_bin(x):
+#     result = ''
+#     for digit in x:  
+#         result += '0' if int(digit) < 5 else '1'
+#         print(result)
+#         return result
+
+# def fake_bin(x):
+#     return ''.join('0' if digit < '5' else '1' for digit in x)
+
+# print(fake_bin('3637'))
+
+# li = ['1', '4', '0', '8', '7', '3', '2']
+# print(li)
+# print(sorted(li))
+# print(li)
+# print()
+# print(li)
+# li.sort()
+# print(li)
+
+# def wave(people):
+#     result = []
+#     enum = enumerate([*people]) 
+#         # [(0, 'h'), (1, 'e'), (2, 'l'), (3, 'l'), (4, 'o')]
+#     for idx, letter in enum:
+
+#         result.append(people[:idx] + people[idx].upper() + people[idx+1:])
+#     print(result)
+
+
+# wave('hello')
+
+# change 'hello' to 'heLlo'
+# people[:idx] + people[idx].upper() + people[idx+1:]
+
+def wave(people):
+    # enum = enumerate([people]) 
+        # [(0, 'h'), (1, 'e'), (2, 'l'), (3, 'l'), (4, 'o')]
+    return [people[:idx] + people[idx].upper() + people[idx+1:] for idx, letter in enumerate(people) if letter != ' ']
+    # return [people[:idx] + letter.upper() + people[idx+1:] for idx, letter in enumerate(people) if letter != ' ']
     
-# Use the game_properties list and dict.fromkeys() to generate a dictionary with all values set to 0. Save the result to a variable called initial_game_state
 
-initial_game_state = dict.fromkeys(game_properties, 0)
+# print(wave('i do'))
 
-# print(initial_game_state)
+# def wave(people):
+#     return [people[:idx] + people[idx].upper() + people[idx+1:] for idx, letter in enumerate(people) if letter != ' ']
 
-inventory = {'croissant': 19, 'bagel': 4, 'muffin': 8, 'cake': 1} #DON'T CHANGE THIS LINE!
+# def wave(str):
+#     return [str[:i] + str[i:].capitalize() for i in range(len(str)) if str[i] != ' '] 
+#     # return [str[:i] + str[i].upper() + str[i+1:] for i in range(len(str)) if str[i]!=" "]
+# print(wave('i do too'))
 
-# Make a copy of inventory and save it to a variable called stock_list USE A DICTIONARY METHOD
+# stuff = {
+#     1: 'boat',
+#     'two': 'car',
+#     (3,'four','5'): 'plane'
+# }
 
-stock_list = inventory.copy()
-
-# add the value 18 to stock_list under the key "cookie"
-
-stock_list['cookie'] = 18
-
-# remove 'cake' from stock_list USE A DICTIONARY METHOD
-
-# stock_list.pop('cake')
-# # print(stock_list)
-
-# list1[i], list2[i] for i in range(0, len(list1))
-
-# list1 = ["CA", "NJ", "RI"]
-# list2 = ["California", "New Jersey", "Rhode Island"]
-
-# # make sure your solution is assigned to the answer variable so the tests can work!
-# answer = {list1[i]: list2[i] for i in range(0, len(list1))}
-
-person = [["name", "Jared"], ["job", "Musician"], ["city", "Bern"]]
-
-# use the person variable in your answer
-# answer = {item[0]: item[1] for item in person}
-# answer = {k:v for k,v in person}
-# # print(answer)
-
-# dicti = dict(person)
-# print(dicti)
-
-# answer = {row[0]: row[1] for row in person}
-# answer = {k:v for k,v in person}
-answer = dict(person)
-# print(answer)
-
-# make sure your solution is assigned to the answer variable so the tests can work!
-vowels = ['a', 'e', 'i', 'o', 'u']
-
-# answer = dict.fromkeys(vowels, 0)
-# answer = {char:0 for char in vowels}
-
-answer = {char:0 for char in 'aeiou'}
-# answer = dict.fromkeys('aeiou', 0)
-
-# print(answer)
-
-# make sure your solution is assigned to the answer variable so the tests can work!
-
-# vowels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-# nums = range(65, 91)
-
-# answer = {nums[i]: vowels[i] for i in range(0, len(vowels))}
-# print(answer)
-
-
-# vowels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-# nums = range(65, 91)
-
-answer = {range(65, 91)[i]: chr(range(65, 91)[i]) for i in range(0, len(range(65, 91)))}
-# print(answer)
-
-answer = {count: chr(count) for count in range(65,91)} 
-
-answer = {num: chr(num) for num in range(65,91)}
-# print(answer)
-
-smalls = {num: chr(num) for num in range(97,123)}
-# print(smalls)
-
-# answer.update(smalls)
-all = dict(chain(answer.items(), smalls.items()))
-print(all)
+# print(1 in stuff)
+# print('plane' in stuff)
+# print(2 in stuff)
+# print('2' in stuff)
+# print(3 in stuff)
+# print((3, 'four', '5') in stuff)
