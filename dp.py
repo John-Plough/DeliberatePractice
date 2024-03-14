@@ -1,99 +1,120 @@
-# def is_pangram(s):
-#     # loop over string
-#     # if alpha,
-#         # check if in dict --> increment or create
-#     # check length of dict == 26
-
-#     count = {}
-
-#     for char in s:
-#         char = char.lower()
-#         if char.isalpha():
-#             if char in count:
-#                 count[char] += 1
-#             else:
-#                 count[char] = 1
-    
-#     print(count)
-#     print(len(count))
-
-#     return len(count) == 26
-
-# # is_pangram("The quick brown fox jumps over the lazy dog")
-
-# def is_pangram(s):
+# def duplicate_count(text):
 
 #     counter = {}
 
-#     for char in s:
+#     for char in text:
 #         char = char.lower()
-#         if char.isalpha():
-#             counter[char] = counter[char] + 1 if char in counter else 1
+#         if char in counter:
+#             counter[char] += 1
+#         else:
+#             counter[char] = 1
 
-#     return len(counter) == 26
+#     occurences = counter.values()
+#     total = 0
 
+#     for num in occurences:
+#         if num > 1:
+#             total += 1
 
-# def is_pangram(s):
+#     return total
 
-#     s = s.lower()
+# def duplicate_count(s):
+#   return len([c for c in set(s.lower()) if s.lower().count(c)>1])
 
-#     for char in 'abcdefghijklmnopqrstuvwxyz':
-#         if char not in s:
-#             return False
-#     return True
+# def duplicate_count(s):
+#     set(s.lower())
 
-# import string
+# print(duplicate_count("Indivisibilities"))
 
-# def is_pangram(s):
-
-#     s = s.lower()
-
-#     for char in 'abcdefghijklmnopqrstuvwxyz':
-#         if char not in s:
-#             return False
-#     return True
+# if s.lower().count(char) > 1
 
 
-# def is_pangram(s):
-#     return set(string.ascii_lowercase).issubset(s.lower())
+# def duplicate_count(s):
+#     return len([c for c in set(s.lower()) if s.lower().count(c) > 1])
+#     return len([c for c in set(s.lower()) if s.lower().count(c)>1])
+#     return len([c for c in set(s.lower()) if s.lower().count(c)>1])
 
-# print(is_pangram("The quick brown fox jumps over the lazy dog"))
+# def duplicate_count(s):
+#   return len([c for c in set(s.lower()) if s.lower().count(c)>1])
 
-# def DNA_strand(dna):
-#     comp = ''
-#     for char in dna:
-#         if char == 'A':
-#             comp += 'T'
-#         elif char == 'T':
-#             comp += 'A'
-#         elif char == 'C':
-#             comp += 'G'
-#         elif char == 'G':
-#             comp += 'C'
+# def duplicate_count(s):
+#     return len([c for c in set(s.lower()) if s.lower().count(c) > 1])
+
+
+
+
+# def duplicate_count(input_str):
+#     s = input_str.lower()
+#     return len([char for char in set(s) if s.count(char) > 1])
+
+# def duplicate_count(input_str):
+#     s = input_str.lower()
+#     seen = set()
+#     duplicates = set()
+
+#     for char in s:
+#         if char in seen:
+#             duplicates.add(char)
+#         seen.add(char)
+
+#     return len(duplicates)
+
+# def duplicate_count(input_str):
+#     s = input_str.lower()
+#     total = 0
+
+#     for char in set(s):
+#         if s.count(char) > 1:
+#             total += 1
+
+#     return total    
+
+# print(duplicate_count("Indivisibilities"))
+
+# def rain_amount(mm):
+#     if mm < 40:
+#         return f"You need to give your plant {40 - mm} mm of water"
+#     else:
+#         return "Your plant has had more than enough water for today!"
     
-#     return comp
+# print(rain_amount(35))
 
-# def DNA_strand(dna):
+# def length_counts(list):
 
-#     table = {
-#         'A': 'T',
-#         'T': 'A',
-#         'C': 'G',
-#         'G': 'C'
-#     }
+#     lengths = {}
+    
+#     for el in list:
+#         if len(el) in lengths:
+#             lengths[len(el)] += 1
+#         else:
+#             lengths[len(el)] = 1
+            
+#     return lengths
 
-#     print(list(table[key] for key in dna))
-#     return '-'.join(table[key] for key in dna)
 
-# def DNA_strand(dna):
-#     return dna.translate(str.maketrans("ATCG","TAGC"))
+# def length_counts(list):
 
-# def DNA_strand(dna):
-#     return dna.translate(str.maketrans('ATCG', 'TAGC', 'XYZ'))
+#     result = {}
 
-# print(DNA_strand('XATAYGTAZ'))
+#     for el in list:
+#         length = len(el)
+#         curr = result.get(length, 0)
+#         result[length] = curr + 1
+    
+#     return result
 
-def merge_arrays(arr1, arr2):
-    print(sorted(set(arr1 + arr2)))
+# def length_counts(elements):
+#     counts = {}
 
-merge_arrays([3,4], [1,2,3])
+#     for el in elements:
+#         curr = counts.get(len(el), 0)
+#         counts[len(el)] = curr + 1
+
+#     return counts
+
+def delete_keys(dict, list):
+    for str in list:
+        if str in dict:
+            del dict[str]
+    
+    return dict
