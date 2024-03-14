@@ -1,120 +1,82 @@
-# def duplicate_count(text):
+# def alphabet_position(text):
+#     alpha = 'abcdefghijklmnopqrstuvwxyz'
+#     mapped = {letter: idx + 1 for idx, letter in enumerate(alpha)}
+#     result = ''
 
-#     counter = {}
+#     for char in text.lower():
+#         if char in mapped:
+#             result += str(mapped[char]) + ' '
 
-#     for char in text:
-#         char = char.lower()
-#         if char in counter:
-#             counter[char] += 1
-#         else:
-#             counter[char] = 1
-
-#     occurences = counter.values()
-#     total = 0
-
-#     for num in occurences:
-#         if num > 1:
-#             total += 1
-
-#     return total
-
-# def duplicate_count(s):
-#   return len([c for c in set(s.lower()) if s.lower().count(c)>1])
-
-# def duplicate_count(s):
-#     set(s.lower())
-
-# print(duplicate_count("Indivisibilities"))
-
-# if s.lower().count(char) > 1
+#     return result.strip()
 
 
-# def duplicate_count(s):
-#     return len([c for c in set(s.lower()) if s.lower().count(c) > 1])
-#     return len([c for c in set(s.lower()) if s.lower().count(c)>1])
-#     return len([c for c in set(s.lower()) if s.lower().count(c)>1])
+# def alphabet_position(text):
 
-# def duplicate_count(s):
-#   return len([c for c in set(s.lower()) if s.lower().count(c)>1])
+#     return ' '.join(str(ord(c) - 96) for c in text.lower() if c.isalpha())
 
-# def duplicate_count(s):
-#     return len([c for c in set(s.lower()) if s.lower().count(c) > 1])
+# # print(alphabet_position("The sunset sets at twelve o' clock."))
 
 
 
+# def alphabet_position(text):
 
-# def duplicate_count(input_str):
-#     s = input_str.lower()
-#     return len([char for char in set(s) if s.count(char) > 1])
+#     result = ''
 
-# def duplicate_count(input_str):
-#     s = input_str.lower()
-#     seen = set()
-#     duplicates = set()
-
-#     for char in s:
-#         if char in seen:
-#             duplicates.add(char)
-#         seen.add(char)
-
-#     return len(duplicates)
-
-# def duplicate_count(input_str):
-#     s = input_str.lower()
-#     total = 0
-
-#     for char in set(s):
-#         if s.count(char) > 1:
-#             total += 1
-
-#     return total    
-
-# print(duplicate_count("Indivisibilities"))
-
-# def rain_amount(mm):
-#     if mm < 40:
-#         return f"You need to give your plant {40 - mm} mm of water"
-#     else:
-#         return "Your plant has had more than enough water for today!"
+#     for char in text.lower():
+#         if char.isalpha():
+#             result += str(ord(char) - 96) + ' '
     
-# print(rain_amount(35))
+#     return result.strip()
 
-# def length_counts(list):
+# # print(alphabet_position("The sunset sets at twelve o' clock."))
 
-#     lengths = {}
+# def alphabet_position(text):
+#     print(str(ord(char) - ord('a') + 1) for char in text.lower() if char.isalpha())
+#     return ' '.join(str(ord(char) - ord('a') + 1) for char in text.lower() if char.isalpha())
+
+# print(alphabet_position("The sunset sets at twelve o' clock."))
+
+# # return " ".join(str(ord(c)-ord("a")+1) for c in s.lower() if c.isalpha())
+
+# # return ' '.join(str(ord(c)-ord('a')+1) for c in s.lower() if c.isalpha())
+
+def calculate_age(year_of_birth, current_year):
     
-#     for el in list:
-#         if len(el) in lengths:
-#             lengths[len(el)] += 1
-#         else:
-#             lengths[len(el)] = 1
-            
-#     return lengths
-
-
-# def length_counts(list):
-
-#     result = {}
-
-#     for el in list:
-#         length = len(el)
-#         curr = result.get(length, 0)
-#         result[length] = curr + 1
+    if year_of_birth < current_year:
+        if current_year - year_of_birth == 1:
+            return "You are 1 year old."
+        else:
+            return f"You are {current_year - year_of_birth} years old."
+    elif year_of_birth > current_year:
+        if year_of_birth - current_year == 1:
+            return "You will be born in 1 year."
+        else:
+            return f"You will be born in {year_of_birth - current_year} years."
+    else:
+        return "You were born this very year!"
     
-#     return result
+def calculate_age(year_of_birth, current_year):
+    diff = year_of_birth - current_year
 
-# def length_counts(elements):
-#     counts = {}
+    if diff > 1:
+        return f"You will be born in {diff} years."
+    elif diff == 1:
+        return "You will be born in 1 year."
+    elif diff == 0:
+        return 'You were born this very year!'
+    elif diff == -1:
+        return "You are 1 year old."
+    else:
+        return f"You are {abs(diff)} years old."
 
-#     for el in elements:
-#         curr = counts.get(len(el), 0)
-#         counts[len(el)] = curr + 1
+def calculate_age(year_of_birth, current_year):
+    diff = abs(year_of_birth - current_year)
+    plural = '' if diff == 1 else 's'
 
-#     return counts
-
-def delete_keys(dict, list):
-    for str in list:
-        if str in dict:
-            del dict[str]
+    if year_of_birth > current_year:
+        return f"You will be born in {diff} year{plural}."
+    elif year_of_birth < current_year:
+        return f"You are {diff} year{plural} old."
+    else:
+        return 'You were born this very year!'
     
-    return dict
