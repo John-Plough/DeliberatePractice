@@ -1,82 +1,99 @@
-# def alphabet_position(text):
-#     alpha = 'abcdefghijklmnopqrstuvwxyz'
-#     mapped = {letter: idx + 1 for idx, letter in enumerate(alpha)}
-#     result = ''
+# def high(string):
 
-#     for char in text.lower():
-#         if char in mapped:
-#             result += str(mapped[char]) + ' '
+#     words = string.split(' ')
+#     highscore = 0
+#     highword = ''
 
-#     return result.strip()
+#     for word in words:
+#         score = 0
+#         for char in word:
+#             point = ord(char) - ord('a') + 1
+#             score += point
+#         if score > highscore:
+#             highscore = score
+#             highword = word
 
-
-# def alphabet_position(text):
-
-#     return ' '.join(str(ord(c) - 96) for c in text.lower() if c.isalpha())
-
-# # print(alphabet_position("The sunset sets at twelve o' clock."))
-
+#     return highword
 
 
-# def alphabet_position(text):
+def high(string):
 
-#     result = ''
+    highscore = 0
 
-#     for char in text.lower():
-#         if char.isalpha():
-#             result += str(ord(char) - 96) + ' '
-    
-#     return result.strip()
+    for word in string.split():
+        score = sum(ord(char) - ord('a') + 1 for char in word)
+        if score > highscore:
+            highscore = score
+            highword = word
 
-# # print(alphabet_position("The sunset sets at twelve o' clock."))
+    return highword
 
-# def alphabet_position(text):
-#     print(str(ord(char) - ord('a') + 1) for char in text.lower() if char.isalpha())
-#     return ' '.join(str(ord(char) - ord('a') + 1) for char in text.lower() if char.isalpha())
 
-# print(alphabet_position("The sunset sets at twelve o' clock."))
+def high(text):
+    words = text.split()
+    scores = []
 
-# # return " ".join(str(ord(c)-ord("a")+1) for c in s.lower() if c.isalpha())
+    for word in words:
+        score = sum(ord(char) - ord('a') + 1 for char in word)
+        scores.append(score)
 
-# # return ' '.join(str(ord(c)-ord('a')+1) for c in s.lower() if c.isalpha())
+    return words[scores.index(max(scores))]
 
-def calculate_age(year_of_birth, current_year):
-    
-    if year_of_birth < current_year:
-        if current_year - year_of_birth == 1:
-            return "You are 1 year old."
-        else:
-            return f"You are {current_year - year_of_birth} years old."
-    elif year_of_birth > current_year:
-        if year_of_birth - current_year == 1:
-            return "You will be born in 1 year."
-        else:
-            return f"You will be born in {year_of_birth - current_year} years."
-    else:
-        return "You were born this very year!"
-    
-def calculate_age(year_of_birth, current_year):
-    diff = year_of_birth - current_year
 
-    if diff > 1:
-        return f"You will be born in {diff} years."
-    elif diff == 1:
-        return "You will be born in 1 year."
-    elif diff == 0:
-        return 'You were born this very year!'
-    elif diff == -1:
-        return "You are 1 year old."
-    else:
-        return f"You are {abs(diff)} years old."
+def high(text):
+    return max(text.split(), key=lambda word: sum(ord(char) - ord('a') + 1 for char in word))
 
-def calculate_age(year_of_birth, current_year):
-    diff = abs(year_of_birth - current_year)
-    plural = '' if diff == 1 else 's'
+# print(high('take two bintang and a dance please'))
 
-    if year_of_birth > current_year:
-        return f"You will be born in {diff} year{plural}."
-    elif year_of_birth < current_year:
-        return f"You are {diff} year{plural} old."
-    else:
-        return 'You were born this very year!'
-    
+def max_word_score(word):
+    return sum(ord(char) - ord('a') + 1 for char in word)
+
+def high(text):
+    words = text.split()
+    return max(words, key=max_word_score)
+
+
+def high(text):
+    return max(text.split(), key=lambda word: sum(ord(char) - ord('a') + 1 for char in word))
+
+# print(high('take two bintang and a dance please'))
+
+
+
+
+def high(text):
+    return max(text.split(), key=lambda word: sum(ord(char) - ord('a') + 1 for char in word))
+
+
+# def max_word_score(word):
+#     return sum(ord(char) - ord('a') + 1 for char in word)
+
+# def high(text):
+#     words = text.split()
+#     return max(words, key=max_word_score)
+
+
+# def high(text):
+#     words = text.split()
+#     scores = []
+
+#     for word in words:
+#         score = sum(ord(char) - ord('a') + 1 for char in word)
+#         scores.append(score)
+
+#     return words[scores.index(max(scores))]
+
+
+# def high(string):
+
+#     highscore = 0
+
+#     for word in string.split():
+#         score = sum(ord(char) - ord('a') + 1 for char in word)
+#         if score > highscore:
+#             highscore = score
+#             highword = word
+
+#     return highword
+
+print(high('take two bintangeriney and a dance please'))
