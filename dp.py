@@ -1,99 +1,72 @@
-# def high(string):
+# dic = {
+#     'chocolate': 4,
+#     'milk': 3,
+#     'eggs': 2
+# }
 
-#     words = string.split(' ')
-#     highscore = 0
-#     highword = ''
+# for item, price in dic.items():
+#     print(f"{item} costs ${price}.")
 
-#     for word in words:
-#         score = 0
-#         for char in word:
-#             point = ord(char) - ord('a') + 1
-#             score += point
-#         if score > highscore:
-#             highscore = score
-#             highword = word
+# def invert(in_dict):
+#     new_dict = {}
+    
+#     for k, v in in_dict.items():
+#         new_dict[v] = k
+        
+#     return new_dict
 
-#     return highword
+# def invert(in_dict):
+#     return {v: k for k, v in dict.items()}
 
+# def count_of_value(my_dict, num):
+#     count = 0
+    
+#     for _, v in my_dict.items():
+#         if v == num:
+#             count += 1
 
-def high(string):
-
-    highscore = 0
-
-    for word in string.split():
-        score = sum(ord(char) - ord('a') + 1 for char in word)
-        if score > highscore:
-            highscore = score
-            highword = word
-
-    return highword
-
-
-def high(text):
-    words = text.split()
-    scores = []
-
-    for word in words:
-        score = sum(ord(char) - ord('a') + 1 for char in word)
-        scores.append(score)
-
-    return words[scores.index(max(scores))]
+#     return count
 
 
-def high(text):
-    return max(text.split(), key=lambda word: sum(ord(char) - ord('a') + 1 for char in word))
+# def count_of_value(dictionary, integer):
+#     count = 0
+    
+#     for key in dictionary:
+#         if dictionary[key] == integer:
+#             count += 1
+            
+#     return count
 
-# print(high('take two bintang and a dance please'))
+# def sum_of_values(my_dict, list_of_strings):
+#     total = 0
+    
+#     for string in list_of_strings:
+#         if string in my_dict:
+#             total += my_dict[string]
 
-def max_word_score(word):
-    return sum(ord(char) - ord('a') + 1 for char in word)
+#     return total
 
-def high(text):
-    words = text.split()
-    return max(words, key=max_word_score)
+# def sum_of_values(my_dict, list_of_strings):
+#     total = 0
 
+#     for k, v in my_dict.items():
+#         if k in list_of_strings:
+#             total += v
 
-def high(text):
-    return max(text.split(), key=lambda word: sum(ord(char) - ord('a') + 1 for char in word))
-
-# print(high('take two bintang and a dance please'))
-
-
-
-
-def high(text):
-    return max(text.split(), key=lambda word: sum(ord(char) - ord('a') + 1 for char in word))
-
-
-# def max_word_score(word):
-#     return sum(ord(char) - ord('a') + 1 for char in word)
-
-# def high(text):
-#     words = text.split()
-#     return max(words, key=max_word_score)
+#     return total
 
 
-# def high(text):
-#     words = text.split()
-#     scores = []
+# def common_elements(my_dict):
+#     common = []
+    
+#     for value in my_dict.values():
+#         if value in my_dict:
+#             common.append(value)
+    
+#     return common
 
-#     for word in words:
-#         score = sum(ord(char) - ord('a') + 1 for char in word)
-#         scores.append(score)
+# def common_elements(my_dict):
+#     return [val for val in my_dict.values() if val in my_dict]
 
-#     return words[scores.index(max(scores))]
-
-
-# def high(string):
-
-#     highscore = 0
-
-#     for word in string.split():
-#         score = sum(ord(char) - ord('a') + 1 for char in word)
-#         if score > highscore:
-#             highscore = score
-#             highword = word
-
-#     return highword
-
-print(high('take two bintangeriney and a dance please'))
+# def common_elements(my_dict):
+#     return [key for key in my_dict if key in my_dict.values()]
