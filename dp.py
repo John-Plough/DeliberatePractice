@@ -1,200 +1,114 @@
-# #func that takes list of ints and a target num
-# #find two different items in list that added together give target num
-# #return indices of those two items in a tuple
+# def longest_consec(list_of_strings, integer):
+#     long = 0
+#     start = 0
+#     longest_string = ''
 
-# # def two_sum(numbers, target):
-# #     #loop thru list
-# #         #loop thru list again
-# #             #compare el and outer loop el added with target
-# #     pass
+#     for my_str in list_of_strings:
+#         length = 0
+#         this_string = ''
+
+#         # print('---loop of strings---')
+#         # print(start + integer)
+#         if start + integer > len(list_of_strings):
+#             # integer = len(list_of_strings) - start
+#             # print(f"END -- The longest string: {longest_string}")
+#             return longest_string
+
+#         for idx in range(start, start + integer):
+#             length += len(list_of_strings[idx])
+#             this_string += list_of_strings[idx]
+#             # print(f"this_string:  {this_string}")
+#             # print(f"length: {length}")
+#             # print(f"long: {long}")
+#         if length > long:
+#             long = length
+#             longest_string = this_string
+#             # print(f"***updated long: {long}")
+#         start += 1
+#         # print(f"  Current longest string: {longest_string}")
+
+#     # return long_string
+#                                         #3
+# longest_consec(["tr", "fol", "tras", "bluey", "abcdef", "uvwxyza"], 3)
+# # longest_consec(["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"], 2) 
+
+
+
+# def longest_consec(list_of_strings, integer):
+#     long = 0
+#     start = 0
+#     longest_string = ''
+
+#     for my_str in list_of_strings:
+#         length = 0
+#         this_string = ''
+
+#         if start + integer > len(list_of_strings):
+#             return longest_string
+
+#         for idx in range(start, start + integer):
+#             length += len(list_of_strings[idx])
+#             this_string += list_of_strings[idx]
+#         if length > long:
+#             long = length
+#             longest_string = this_string
+#         start += 1
+
+
+# # longest_consec(["tr", "fol", "tras", "bluey", "abcdef", "uvwxyza"], 3)
+
+# # strarr = ["tree", "foling", "trashy", "blue", "abcdef", "uvwxyz"], k = 2
+
+# # def longest_consec(list_of_strings, integer):  
+# #     long = 0
+# #     lengths = []
+# #     for str in list_of_strings:
+# #         lengths.append(len(str))
+# #     print(lengths)
+
+# #     for num in lengths:
+# #         start = 0
+# #         for idx in range(start, integer):
+# #                 long += lengths[idx]
+# #                 start += 1
+# #                 # integer -= 1
+# #                 print(long)
+
+# #     print(long)
+
+
+def spacey(array):
+    result = []
+    my_string = ''
     
-# # def two_sum(numbers, target):
-# #     #loop thru list
-# #         #if target - num in list
-# #             # index of target - num, and num
-# #     pass
-
-# # def two_sum(numbers, target):
-# #     if target % 2 != 0:
-# #         for num in numbers:
-# #             if target - num in numbers:
-# #                 return (numbers.index(target - num), numbers.index(num))
-# #     else:
-# #         if target / 2 in numbers and numbers.lindex(target / 2) != numbers.rindex(target / 2):
-# #             return (numbers.lindex(target / 2), numbers.rindex(target / 2))
-# #         else: 
-
-
-
-# # def two_sum(numbers, target):
-# #     if target / 2 in numbers and numbers.index(target / 2) != numbers[::-1].index(target / 2):
-# #         return (numbers.index(target / 2), numbers[::-1].index(target / 2))
-# #     else:
-# #         for num in numbers:
-# #             if target - num in numbers:
-# #                 return (numbers.index(target - num), numbers.index(num))
-            
-
-
-# # def two_sum(numbers, target):
-# #     half = target / 2
-
-# #     #even target
-# #     if half in numbers and numbers.index(half) != numbers[::-1].index(half):
-# #         return (numbers.index(half), numbers[::-1].index(half))
-# #     else:
-# #         for num in numbers:
-# #             if target - num in numbers:
-# #                 return (numbers.index(target - num), numbers.index(num))
-
-
-# def two_sum(numbers, target):
+    for word in array:
+        my_string += word   
+        result.append(my_string)    
+        print(result)
     
-#     #odd
-#     if target % 2 != 0:
-#         for num in numbers:
-#             if target - num in numbers:
-#                 return (numbers.index(target - num), numbers.index(num))
-    
-#     #even    
-#     else:
-#         # two occurences of half target (ex. [1,2,2], 4)
-#         half = target / 2
-#         if half in numbers and numbers.count(half) > 1:
-#             first = numbers.index(half)
-#             print(first)
-#             second = numbers[first + 1:].index(half) + 1 + first
-#             print(second)
-#             print(first, second)
-#             return (first, second)
-#         # two different nums
-#         else:
-#             for num in numbers:
-#                 if target - num in numbers:
-#                     return (numbers.index(target - num), numbers.index(num))
-            
-# # print(two_sum([2,2,3], 4))
+    return result
 
-# #     '1 3 82 44'
+def spacey(array):
+    my_string = ''
+    return [my_string := my_string + word for word in array]
 
-# #     [1 ,2, 3]             4          ((0,2), (2,0))
-# #     [1234,5678,9012]      14690      ((1,2), (2,1))
-# #     [2, 2,] 3]             4          ((0,1), (1,0))
+def spacey(array):
+    strr = ''
+    out = []
+    for el in array:
+        strr += el
+        out.append(strr)
+    return out
 
+from itertools import accumulate
 
+def spacey(a):
+    return list(accumulate(a))
 
-# # [1,1,8], 
-# # [1,1,8], 
-# # [1,2,8]
+def spacey(array):
+    return [''.join(array[:i+1]) for i in range(len(array))]
 
-# # ex = [1,2,4,6,8,9], 8
-# # ex = [1,2,4,4,9], 8
-# # ex = [1,2,3,6,9], 9
-# # ex = [1,2,4,5,6], 9
-# # print(two_sum([1, 2, 3], 4)) # returns (0, 2) or (2, 0)
-# # print(two_sum([3, 2, 4], 6)) # returns (1, 2) or (2, 1))
-                
+def spacey(array):
+    return [''.join(array[:1+i]) for i in range(len(array))]
 
-# def two_sum(numbers, target):
-
-#     for num in numbers:
-#             if target - num in numbers and numbers.index(target - num) != numbers.index(num):
-#                 return (numbers.index(target - num), numbers.index(num))
-#             else:
-#                 first = numbers.index(target / 2)
-#                 second = numbers[first + 1:].index(half) + first + 1
-#                 return first, second
-    
-#     #even    
-#     else:
-#         # two occurences of half target (ex. [1,2,2], 4)
-#         half = target / 2
-#         if half in numbers and numbers.count(half) > 1:
-#             first = numbers.index(half)
-#             print(first)
-#             second = numbers[first + 1:].index(half) + 1 + first
-#             print(second)
-#             print(first, second)
-#             return (first, second)
-#         # two different nums
-#         else:
-#             for num in numbers:
-#                 if target - num in numbers:
-#                     return (numbers.index(target - num), numbers.index(num))
-            
-# # print(two_sum([2,2,3], 4))
-                
-
-# def two_sum(numbers, target):
-
-#     for num in numbers:
-#         if target - num in numbers and numbers.index(target - num) != numbers.index(num):
-#             return numbers.index(num), numbers.index(target - num)
-
-#     first = numbers.index(target / 2)
-#     second = numbers[first + 1:].index(target / 2) + first + 1
-#     return first, second
-                            
-
-
-
-# def two_sum(numbers, target):
-#     other = target - num
-#     for num in numbers:
-#         if other in numbers and numbers.index(other) != numbers.index(num):
-#             return numbers.index(num), numbers.index(other)
-
-#     first = numbers.index(target / 2)
-#     second = numbers[first + 1:].index(target / 2) + first + 1
-#     return first, second
-
-
-# def two_sum(numbers, target):
-    
-#     for num1 in numbers:
-#         num2 = target - num1
-#         if num2 in numbers and num1 != num2:
-#             return numbers.index(num1), numbers.index(num2)
-
-#     # both addends are same value 
-#     half = target / 2
-#     slice_index = num1 + 1
-#     num1 = numbers.index(half)
-#     num2 = numbers[slice_index:].index(half) + slice_index
-#     return num1, num2
-
-# print(two_sum([1234,5678,9012], 14690))
-
-# def two_sum(numbers, target):
-
-#     # addends are different values
-#     for num1 in numbers:
-#         num2 = target - num1
-#         if num2 in numbers and numbers.index(num1) != numbers.index(num2):
-#             return numbers.index(num1), numbers.index(num2)
-
-#     # addends are same value
-#     num1 = numbers.index(target / 2)
-#     num2 = numbers[num1 + 1:].index(target / 2) + num1 + 1
-#     return num1, num2
-
-
-def two_sum(numbers, target):
-    for i, num1 in enumerate(numbers):
-        for j, num2 in enumerate(numbers[i+1:], i+1):
-            if num1 + num2 == target:
-                return i,j
-
-
-def two_sum(numbers, target):
-    other = {}
-
-    for idx, num in enumerate(numbers):
-        if target - num in other:
-            return other[target - num], idx
-        
-        other[num] = idx
-
-print(two_sum([1234,5678,9012], 14690))
-
-arr = [1,3,6,15]
+print(spacey(['i', 'have','no','space']))
