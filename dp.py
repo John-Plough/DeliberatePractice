@@ -1,233 +1,211 @@
-# def no_space(x):
-#     return x.replace(' ', '')
-    # return ''.join(x.split())
+# # # def solution(n):
+# #     # build ordered container for pairs, starting with largest
+    
+# #     # create empty output str
+    
+# #     # loop over container
+# #         # if n > val
+# #             # divide n by val
+# #             # add that many symbols to output str
+# #             # decrement n
 
-# def basic_op(operator, value1, value2):
-#     pass
+# #     # return output str
 
-# def basic_op(operator, value1, value2):
-#     operations = {
-#         '+': value1 + value2,
-#         '-': value1 - value2,
-#         '*': value1 * value2,
-#         '/': value1 / value2
-#     }
-#     return operations[operator]
+# # # def solution(n):
+    
+# # #     pairs = [
+# # #         ('M', 1000),
+# # #         ('CM', 900),
+# # #         ('D', 500),
+# # #         ('CD', 400),
+# # #         ('C', 100),
+# # #         ('XC', 90),
+# # #         ('L', 50),
+# # #         ('XL', 40),
+# # #         ('X', 10),
+# # #         ('IX', 9),
+# # #         ('V', 5),
+# # #         ('IV', 4),
+# # #         ('I', 1),
+# # #     ]
 
-# class Solution:
-#     def gcdOfStrings(self, str1: str, str2: str) -> str:
+# # #     roman_numeral = ''
+
+# # #     for pair in pairs:
+# # #         symbol = pair[0]
+# # #         value = pair[1]
+# # #         print(f"n: {n}, val: {value}, {n > value}")
+# # #         if n >= value:
+# # #             print(f"romannum: {roman_numeral}")
+# # #             roman_numeral += (n // value) * symbol
+# # #             print(f"        romannum: {roman_numeral}")
+# # #             n -= (n // value) * value
+
+    
+# # #     return roman_numeral
 
 
-# def count_sheeps(sheep):
-#     return sheep.count(True)
 
-# def count_sheeps(sheep):
+
+
+# # # for num, rep in table:
+# # #         if x >= num:
+# # #             return rep + solution(x-num)
+# # #     return str()
+
+
+# # def solution(x):
+# #     table = [
+# #         (1000,"M"),
+# #         (900,"CM"),
+# #         (500,"D"),
+# #         (400,"CD"),
+# #         (100,"C"),
+# #         (90,"XC"),
+# #         (50,"L"),
+# #         (40,"XL"),
+# #         (10,"X"),
+# #         (9,"IX"),
+# #         (5,"V"),
+# #         (4,"IV"),
+# #         (1,"I")
+# #     ]
+
+# #     roman_numeral = ''
+
+# #     for num, rep in table:
+# #         if x >= num:
+# #             roman_numeral += (x // num) * rep
+# #             x -= (x // num) * num
+    
+# #     return roman_numeral
+
+# # print(solution(14))
+
+
+# def is_square(n):  
+
+# # determine if sq root of n is an int
+
+
+
+# def is_square(n): 
+#     return n >= 0 and (n ** 0.5) % 1 == 0
+
+# # return False if n < 0 else pow(n, 0.5) % 1 == 0
+
+
+# def number(bus_stops):
+    # input - list of pairs [[10,0],[3,5],[5,8]]
+    # first is people that get on
+    # second is people that get off
+    # output people still on bus after last pair
+
+    # create total
+    #loop over bus_stops
+        # add first to total
+        # subtract second to total
+    #return total
+
 #     total = 0
 
-#     for i in sheep:
-#         if i == True:
-#             total += 1
+#     for stop in bus_stops:
+#         total += stop[0]
+#         total -= stop[1]
 
 #     return total
 
-# def century(year):
-#     return year // 100 if year % 100 == 0 else (year // 100) + 1
+# def number(bus_stops):
 
-# def abbrev_name(name):
-#     return '.'.join(item[0] for item in name.upper().split())
+#     total = 0
 
-# def digitize(n): 
-#     return [int(char) for char in str(n)[::-1]]
+#     for stop in bus_stops:
+#         total += stop[0]
+#         total -= stop[1]
 
-# def greet(name):
-#     return f"Hello, {name} how are you doing today?"
+#     return total
 
-# def summation(num):
-
-
-# def summation(num):
-#     return (num * num + num) / 2
-
-    # return (1 + num) * num / 2
-
-    # return sum(range(1, num+1))
-
-# def move_zeros(lst):
-#     zeros = []
-#     others = []
-
-#     for idx, num in enumerate(lst):
-#         if num == 0:
-#             zeros.append(lst[idx])
-#         else:
-#             others.append(lst[idx])
-            
-#     return others + zeros
-
-# def move_zeros(lst):
-#     for num is lst:
-#         if num == 0:
-#             lst.remove(num)
-#             lst.append(num)
-#     return lst
+# print(number([[10,0],[3,5],[5,8]]))
 
 
 
-# class Solution:
-#     def intToRoman(self, num: int) -> str:
+# def number(bus_stops):
+#     return sum(get_on - get_off for get_on, get_off in bus_stops)
 
-#         converter = [   #holds tuples of (roman numeral, integer)
-#         ('M', 1000),
-#         ('CM', 900),
-#         ('D', 500),
-#         ('CD', 400),
-#         ('C', 100),
-#         ('XC', 90),
-#         ('L', 50),
-#         ('XL', 40),
-#         ('X', 10),
-#         ('IX', 9),
-#         ('V', 5),
-#         ('IV', 4),
-#         ('I', 1)
-#         ]
+# # def number(bus_stops):
+# #     return sum(stop[0] - stop[1] for stop in bus_stops)
 
-#         roman_num = ''  #building up this string over our for-loop
+# # def number(bus_stops):
 
-#         for pair in converter:  #looping over each tuple in our converter list
-#             roman = pair[0]
-#             integer = pair[1]
-#             dividend = num // integer
+# #     total = 0
 
-#             if dividend > 0:
-#                 roman_num += roman * dividend   #adding current numeral this many times
-#                 num -= integer * dividend       #decrementing by integer value this many times
+# #     for stop in bus_stops:
+# #         total += stop[0]
+# #         total -= stop[1]
 
-#         return roman_num
+# #     return total
+
+# print(number([[10,0],[3,5],[5,8]]))
 
 
-# def cakes(recipe, available):
-#     total = float('inf')
-#     for ingredient in recipe:
-#         if ingredient in available:
-#             max = available[ingredient] // recipe[ingredient]
-#             if max < total:
-#                 total = max
-#         else:
-#             return 0
+def moveZeroes(nums):
+    i = 0
     
-#     return int(total)
+    for num in nums:
+        if num != 0:
+            nums[i] = num
+            i += 1
 
-# def cakes(recipe, available):
-#     return min(available.get(ingredient, 0) // recipe[ingredient] for ingredient in recipe)
+    while i < len(nums):
+        nums[i] = 0
+        i += 1
 
-# print(cakes({'flour': 500, 'sugar': 200, 'eggs': 1}, {'flour': 1200, 'sugar': 1200, 'eggs': 5, 'milk': 200}))
+    return nums
 
+# print(moveZeroes([0,1,0,3,12]))
+#     # ---> [1,3,12,0,0]
 
-# def guess_gifts(wishlist, presents): 
+def moveZeroes1(nums):
+    i = 0
 
-#     #loop over wishlist arr
-#         #for each item, compare vals to vals of pres
-    
-    
-# wishlist =      [
-#                     {'name': "mini puzzle", 'size': "small", 'clatters': "yes", 'weight': "light"},
-#                     {'name': "toy car", 'size': "medium", 'clatters': "a bit", 'weight': "medium"},
-#                     {'name': "card game", 'size': "small", 'clatters': "no", 'weight': "light"}
-#                 ]
+    for num in nums:
+        if num != 0:
+            nums[i] = num
+            i += 1
 
-# presents =      [
-#                     {'size': "medium", 'clatters': "a bit", 'weight': "medium"},
-#                     {'size': "small", 'clatters': "yes", 'weight': "light"}
-#                 ]
+    while i < len(nums):
+        nums[i] = 0
+        i += 1
 
-# gifts = []
-# loop over enumerate(presents:)
-#     for each item:
-#         for each item in wishlist
-#             if size, clat, weight in wishlist.values == 0:
-#                 gifts.append wishlist[name]
-# return gifts
+    return nums
 
-# def guess_gifts(wishlist, presents): 
-#     gifts = []
-#     for i, item1 in enumerate(presents):
-#         for j, item2 in enumerate(wishlist):
-#             if item1['size'] == item2['size'] and item1['clatters'] == item2['clatters'] and item1['weight'] == item2['weight']:
-#                 gifts.append(wishlist['name'])
-#     return gifts
+# print(moveZeroes([0,1,0,3,12]))
+    # ---> [1,3,12,0,0]
 
-# wishlist = [{'name': "mini puzzle", 'size': "small", 'clatters': "yes", 'weight': "light"},
-#             {'name': "toy car", 'size': "medium", 'clatters': "a bit", 'weight': "medium"},
-#             {'name': "card game", 'size': "small", 'clatters': "no", 'weight': "light"}]
-# presents = [{'size': "medium", 'clatters': "a bit", 'weight': "medium"},
-#             {'size': "small", 'clatters': "yes", 'weight': "light"}]
+def moveZeroes2(nums):
+    left = 0
 
-# def guess_gifts(wishlist, presents): 
-#     gifts = []
-#     for present in presents:
-#         print(f"present is --> {present}")
-#         for wish in wishlist:
-#             print(f"   wish is --> {wish}")
-#             if present['size'] == wish['size'] and present['clatters'] == wish['clatters'] and present['weight'] == wish['weight'] and wish['name'] not in gifts:
-#                 gifts.append(wish['name'])
-#     return gifts
+    for right in range(len(nums)):
+        if nums[right]:
+            nums[left], nums[right] = nums[right], nums[left]
+            left += 1
 
-# def guess_gifts(wishlist, presents): 
-#     gifts = []
+    return nums
+                    # [1,3,12,0,0] 
+# print(moveZeroes([0,1,0,3,12]))
+    # ---> [1,3,12,0,0]
 
-#     for present in presents:
-#         for wish in wishlist:
-#             if (present['size'] == wish['size'] and 
-#                 present['clatters'] == wish['clatters'] and 
-#                 present['weight'] == wish['weight']:
-#                 gifts.append(wish['name'])
-#     return set(gifts)
+def moveZeroes2(nums):
+    left_index = 0
 
-# print(guess_gifts(wishlist, presents))
+    for right_index in range(len(nums)):
+        a = nums[left_index]
+        b = nums[right_index]
 
-# wishlist =      [
-#                     {'name': "mini puzzle", 'size': "small", 'clatters': "yes", 'weight': "light"},
-#                     {'name': "toy car", 'size': "medium", 'clatters': "a bit", 'weight': "medium"},
-#                     {'name': "card game", 'size': "small", 'clatters': "no", 'weight': "light"}
-#                 ]
+        if b:  #if element is not a zero...
+            a, b = b, a
+            left_index += 1
 
-# presents =      [
-#                     {'size': "medium", 'clatters': "a bit", 'weight': "medium"},
-#                     {'size': "small", 'clatters': "yes", 'weight': "light"}
-#                 ]
-
-# def find_needle(haystack):
-#     return f"found the needle at position {haystack.index('needle')}"
-
-
-
-# def spin_words(sentence):
-
-#     return ' '.join(word[::-1] if len(word) >= 5 else word for word in sentence.split())
-
-
-        
-
-def likes(names):
-    match len(names):
-        case 0: return 'no one likes this'
-        case 1: return f"{names[0]} likes this"
-        case 2: return f"{names[0]} and {names[1]} like this"
-        case 3: return f"{names[0]}, {names[1]} and {names[2]} like this"
-        case _: return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
-
-# def likes(names):    
-#     if len(names) == 0:
-#         return 'no one likes this'
-#     elif len(names) == 1:
-#         return f"{names[0]} likes this"
-#     elif len(names) == 2:
-#         return f"{names[0]} and {names[1]} like this"
-#     elif len(names) == 3:
-#         return f"{names[0]}, {names[1]} and {names[2]} like this"
-#     elif len(names) > 3:
-#         return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
-
-print(likes([]))
-print(likes(['John', 'Tim', 'Derek', 'Sal', 'Kiber']))
+    return nums
+                    # [1,3,12,0,0] 
+print(moveZeroes([0,1,0,3,12]))
