@@ -1,203 +1,168 @@
-# # def unique_in_order(seq):
-# #     if not seq:
-# #         return []
+# def is_square(n):   
+#     return n >= 0 and (n ** 0.5) % 1 == 0
+
+def reverse_words(text):
+    return ' '.join(word[::-1] for word in text.split(' '))
+
+
+
+def solve(st):
+    if len(st) % 2 != 0:
+        return -1
     
-# #     result = [seq[0]]
+    stack = []
+    counter = 0
 
-# #     for el in seq:
-# #         if el != result[-1]:
-# #             result.append(el)
+    for p in st: 
+        if p == '(':
+            stack.append(p)
+        elif p == ')' and stack:
+            stack.pop()
+        elif p == ')':  #stack is empty
+            counter += 1
+            stack.append(p)
+        print(stack)
+            
+    return counter + len(stack) // 2
 
-# #     return result
-
-# # def unique_in_order(iterable):
-# #     result = []
-# #     prev = None
-# #     for char in iterable:
-# #         if char != prev:
-# #             result.append(char)
-# #             prev = char
-# #     return result
-
-# # def unique_in_order(seq):
-# #     result = []
-
-# #     for el in seq:
-# #         if not len(result) or el != result[-1]:
-# #             result.append(el)
-
-# #     return result
-
-# # print(unique_in_order('A'))
-# # print(unique_in_order([[1],[2],[3]]))
-
-# # def check_exam(arr1, arr2):
-# #     score = 0
-
-# #     for i in range(len(arr1)):
-# #         if arr1[i] == arr2[i]:
-# #             score += 4
-# #         elif arr1[i] != arr2[i] and arr2[i] != '':
-# #             score -= 1
-
-# #     return score if score > 0 else 0
-        
-
-# def sum_two_smallest_numbers(numbers):
-#     numbers.sort()
-#     return numbers[0] + numbers[1]
-
-# def sum_two_smallest_numbers(numbers):
-#     ordered = sorted(numbers)
-#     return ordered[0] + ordered[1]
-
-# def sum_two_smallest_numbers(numbers):
-#     lowest = float('inf')
-#     low = float('inf')
-
-#     for num in numbers:
-#         if num < lowest:
-#             low = lowest
-#             lowest = num
-#         elif num < low:
-#             low = num
-#         print(f"lowest: {lowest}, low: {low}")
-#     return lowest + low
-
-# def sum_two_smallest_numbers(numbers):
-#     numbers1 = numbers[::]
-#     a = min(numbers1)
-#     numbers1.remove(a)
-#     b = min(numbers1)
-#     return a + b
-
-# # print(sum_two_smallest_numbers([5, 8, 12, 18, 22]))
-# # print(sum_two_smallest_numbers([7, 15, 12, 18, 22]))
-# print(sum_two_smallest_numbers([25, 12, 10, 8, 18, 22]))
-
-
-# def solution(text, ending):
-#     return text.endswith(ending)
+# print(solve('))(('))
 
 
 
-# def rot13(message):
-#     encrypted_message = ''
 
-#     for char in message:
-#         int_rep = ord(char)
-#         offset = int_rep + 13
-#         encrypted_char = chr(offset)
-
-#         if 65 <= int_rep <= 90: #uppercase 
-#             if offset > 90:
-#                 offset -= 26
-#             encrypted_message += encrypted_char
-
-#         elif 97 <= int_rep <= 122: #lowercase
-#             if offset > 122:
-#                 offset -= 26
-#             encrypted_message += encrypted_char
-
-#         else:
-#             encrypted_message += char
-
-#     return encrypted_message
-
-# print(rot13('John'))
-
-# # def rot13b(message):
+def solve(st):
+    if len(st) % 2 != 0:
+        return -1
     
-# #     encryption = ''
+    stack = []
+    counter = 0
+    for p in st: 
+        if p == ')' and stack:
+            stack.pop()
+        elif p == '(':
+            stack.append(p)
+        elif p == ')':
+            counter += 1
+            stack.append(p)
+            
+    if len(stack) % 2 != 0:
+        return -1
+    else:
+        return counter + len(stack) // 2
 
-# #     for char in message:
-# #         if (ord(char) > 64 and ord(char) < 91) or (ord(char) > 96 and ord(char) < 123):
-# #             cipher = ord(char) + 13
-# #             if (ord(char) < 91 and cipher > 90) or (ord(char) > 96 and cipher > 122):
-# #                 cipher -=26
-# #             encryption += chr(cipher)
-# #         else:
-# #             encryption += char
+# print(solve('))(('))
 
-# #     return encryption
+st = '))(('
+
+def solve(s):
+    if len(s) % 2: return -1
+    #imagine a simple symmetric random walk; '(' is a step up and ')' is a step down. We must stay above the original position
+    height = 0; counter = 0
+    for x in s:
+        if x == '(':
+            height += 1
+        else:
+            height -= 1
+        if height < 0: 
+            counter += 1
+            height += 2
+    #counter is the number of flips from ')' to '(', height//2 number of opposite flips
+    return counter + height // 2
 
 
-def findMaxAverage(nums, k):
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def is_empty(self):
+        return self.items == []
+
+    def push(self, item):
+        self.items.append(item)
+
+    def pop(self):
+        return self.items.pop()
+
+    def peek(self):
+        return self.items[-1]
+
+    def size(self):
+        return len(self.items)
+
+
+def solve(s):
+    l = len(s)
+    if l % 2 != 0: return -1
+    stack = Stack(); count = 0; i = 0
+    while i < len(s):
+        if s[i] == "(":
+            stack.push(s[i])
+        else:
+            if stack.is_empty():
+                count += 1
+            else: stack.pop()
+        i += 1
+    q = (count + stack.size())//2
+    return q if count % 2 == 0 and stack.size() % 2 == 0 else q + 1
+
+
+def solve(s):
+    t = None
+    while t != s:
+        t, s = s, s.replace('()', '')
+    return -1 if len(s) % 2 else sum(1 + (a == tuple(')(')) for a in zip(*[iter(s)] * 2))
+
+def solve(s):
+    if len(s) % 2: return -1
+    count, swap = 0, 0
+    for i,c in enumerate(s):
+        count += (c == '(') - (c == ')')
+        if count < 0:
+            swap += 1 ; count = 1
+        elif count > len(s)-i: 
+            swap += 1 ; count -= 2
+    return swap
+
+
+
+def solve(st):
+    if len(st) % 2 != 0:
+        return -1
     
-    largest_avg = float('-inf')
+    stack = []
+    counter = 0
 
-    for i in range(len(nums) - (k-1)):
-        total = nums[i] + nums[i+1] + nums[i+2] + nums[i+3]
-        avg = total / k
-        if avg > largest_avg:
-            largest_avg = avg 
-    return largest_avg
+    for p in st: 
+        print(p)
+        if p == '(':
+            stack.append('Open')
+        elif p == ')' and stack:
+            stack.pop()
+        elif p == ')':  #stack is empty
+            counter += 1
+            stack.append('Closed')
+        print(f"Stack: {stack}")
+        print(f"Counter: {counter}")
+        print()
+            
+    return counter + len(stack) // 2
 
-# print(findMaxAverage([1,12,-5,-6,50,3], 4))
-# [1,12,-5,-6,50,3], k = 4
-#  0  1  2  3  4 5
-
-def findMaxAverage(nums, k):
+def solve(s):
+    if len(s) % 2 != 0:
+        return -1  # If the string length is odd, it's not possible to balance parentheses
     
-    max_avg = float('-inf')
-
-    for i in range(len(nums) - (k-1)):
-        total = sum(nums[i:i+k])
-        avg = total / k
-        if avg > max_avg:
-            max_avg = avg
+    stack = []
+    reversals_needed = 0
     
-    return max_avg
-
-# print(findMaxAverage([1,12,-5,-6,50,3], 4))
-# print(findMaxAverage([5], 1))
-
-
-def findMaxAverage(nums, k):
+    for char in s:
+        if char == '(':
+            stack.append(char)
+        elif char == ')':
+            if stack and stack[-1] == '(':
+                stack.pop()
+            else:
+                reversals_needed += 1
     
-    curr_sum = max_sum = sum(nums[:4])
+    return reversals_needed + len(stack) // 2  # Add half of remaining open parentheses as each 
 
-    for i in range(k, len(nums)):
-        curr_sum += nums[i] - nums[i - k]
-        max_sum = max(max_sum, curr_sum)
-
-    return max_sum / k
-
-# print(findMaxAverage([1,12,-5,-6,50,3], 4))
-# print(findMaxAverage([5], 1))
-
-
-# def findMaxAverage(nums, k):
-    
-#     max_avg = float('-inf')
-#     curr_sum = sum(nums[:k])
-
-#     for i in range(len(nums) - k + 1):
-#         curr_sum += nums[k + i - 1] 
-#         curr_sum -= nums[i - 1]
-#         avg = curr_sum / k
-#         if avg > max_avg:
-#             max_avg = avg
-    
-#     return max_avg
-
-# print(findMaxAverage([1,12,-5,-6,50,3], 4))
-
-def findMaxAverage(nums, k):
-    
-    max_avg = float('-inf')
-    window_sum = 0
-
-    for i in range(len(nums)):
-        window_sum += nums[i]
-        if i >= k - 1:
-            max_avg = max(max_avg, window_sum / k)
-            window_sum -= nums[i - k + 1]
-    return max_avg
-
-print(findMaxAverage([1,12,-5,-6,50,3], 4))
-print(findMaxAverage([5], 1))
-
-
-
-
+print(solve('))(('))
