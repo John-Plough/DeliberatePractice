@@ -1,220 +1,177 @@
-# # # def unique_in_order(sequence):
-# # #     if not sequence:
-# # #         return []
+# # # def is_anagram(str1, str2):
+# # #     return sorted(str1.lower()) == sorted(str2.lower())
+
+
+# # # def is_anagram(str1, str2):
+# # #     if len(str1) != len(str2):
+# # #         return False
     
-# # #     result = [sequence[0]]
-
-# # #     for el in sequence:
-# # #         if el != result[-1]:
-# # #             result.append(el)
-
-# # #     return result
-
-
-# # # def unique_in_order(sequence):
-# # #     res = []
-# # #     prev = None
-
-# # #     for el in sequence:
-# # #         if el != prev:
-# # #             res.append(el)
-# # #             prev = el
-
-# # #     return res
-
-
-# # def tower_builder(n):
-# #     tower = []
-# #     space = ' '
-# #     star = '*'
-# #     stars = 1
-
-# #     for i in range(n):
-# #         tower.append(((n-1) * space) + (stars * star) + ((n-1) * space))
-# #         n -= 1
-# #         stars += 2
-
-# #     return tower
-
-
-
-# # def tower_builder(n):
-# #     tower = []
-# #     counter = 1
-
-# #     for _ in range(n):
-# #         spaces = ((n-1) * ' ')
-# #         stars = (counter * '*')
-# #         tower.append(spaces + stars + spaces)
-# #         n -= 1
-# #         counter += 2
-
-# #     return tower
-
-
-# # def tower_builder(n):
-# #     tower = []
-
-# #     for row in range(1, n+1):
-# #         spaces = ' ' * (n-row)
-# #         stars = '*' * (2 * row - 1)
-# #         tower.append(spaces + stars + spaces)
-
-# #     return tower
-
-# # def tower_builder(n):
-# #     tower = []
-
-# #     for floor in range(1, n + 1):
-# #         spaces = ' ' * (n - floor)
-# #         stars = '*' * (2 * floor - 1)
-# #         tower.append(spaces + stars + spaces)
-
-# #     return tower
-
-
-
-# # def tower_builder(n):
-# #     return [ for floor in range(1, n+1)]
-
-
-# # print(tower_builder(0))
-# # print(tower_builder(1))
-# # print(tower_builder(2))
-# # print(tower_builder(6))
-
-
-
-# # int(bin(5)[2:])
-
-# # int(f'{5:b}')
-
-
-# def isAnagram(s, t):
-#         a = [*s].sort()
-#         print(s)
-#         b = [*t].sort()
-#         print(t)
-#         return a == b
-
-# # print(isAnagram('rat', 'car'))
-
-
-# def isAnagram(s, t):
-#     if len(s) != len(t):
-#         return False
+# # #     str1 = str1.lower()
+# # #     str2 = str2.lower()
+# # #     str1_count, str2_count = {}, {}
     
-#     countS, countT = {}, {}
+# # #     for i in range(len(str1)):
+# # #         str1_count[str1[i]] = 1 + str1_count.get(str1[i], 0)
+# # #         str2_count[str2[i]] = 1 + str2_count.get(str2[i], 0)
 
-#     for i in range(len(s)):
-#         countS[s[i]] = 1 + countS.get(s[i], 0)
-#         countT[t[i]] = 1 + countT.get(t[i], 0)
-
-#     for key in countS:
-#         if countS[key] != countT.get(key, 0):
-#             return False
-
-#     return True
-
-
-# def ana(s, t):
-#     if len(s) != len(t):
-#         return False
-    
-#     scount, tcount = {}, {}
-
-#     for i in range(len(s)):
-#         scount[s[i]] = 1 + scount.get([s[i]], 0)
-#         tcount[t[i]] = 1 + tcount.get([t[i]], 0)
-
-#     for key in scount:
-#         if scount[key] != tcount.get(key, 0):
-#             return False
-    
-#     return True
+# # #     for char in str1:
+# # #         if str1_count[char] != str2_count.get(char, 0):
+# # #             return False
         
+# # #     return True
 
-# print(isAnagram('ratsi', 'ratis'))
+# # # # def remove_exclamation_marks(s):
+# # # #     s.replace('!', '')
+
+# # # # def remove_exclamation_marks(s):
+# # # #     return ''.join(char for char in s if char != '!')
+
+# # # # def remove_exclamation_marks(s):
+# # # #     return s.replace('!', '')
+
+# # # def remove_exclamation_marks(s):
+# # #     return ''.join(char for char in s if char != '!')
+
+# # # def remove_exclamation_marks(s):
+# # #     return s.replace('!', '')
+
+
+# # # def find_average(numbers):
+# # #     return sum(numbers) / len(numbers)
+
+# # # def find_average(numbers):
+# # #     print(numbers)
+# # #     return sum(numbers)/len(numbers)
+
+# # # print(find_average([]))
+
+# # def title_case(title, minor=''):
+# #     title.title()
+# #     arr = minor.lower().split(' ')
+# #     for word in arr:
+# #         if word in title.lower():
+# #             title.replace(word, word.lower())
+
+# #     return title
+
+
+# # def title_case(title, minor=''):
+# #     low_title = title.lower()
+# #     low_minor = minor.lower()
+
+# #     arr = low_minor.split(' ')
     
+# #     for word in arr:
+# #         if word not in low_title:
+# #             low_title.replace(word, word.title())
 
+# #     return title
+
+# # def title_case(title, minor=''):
+# #     title = title.lower().split()
+# #     minor = minor.lower().split()
+
+# #     for i in range(len(title)):
+# #         if i == 0 or title[i] not in minor:
+# #             title[i] = title[i].title()
     
-def sort_array(arr):
-    odds = []
+# #     return ' '.join(title)
+
+# # # print(title_case('THE WIND IN THE WILLOWS', 'The In'))
+
+# # # [a clash of KINGS]    [a an the of]
+
+
+
+# # def title_case(title, minor=''):
+
+# #     title = title.lower().split()   # all words are lowercased and in list
+# #     minor = minor.lower().split()   
+
+# #     for i in range(len(title)): # loop over title words
+# #         if i == 0 or title[i] not in minor: # if not first word or a minor word: capitalize
+# #             title[i] = title[i].title()
     
-    # find odds and add to odds list
-    for i in range(len(arr)): 
-        if arr[i] % 2 != 0:
-            odds.append(arr[i])
-            arr[i] = 1
+# #     return ' '.join(title)  # return as string
+
+
+
+# # def title_case(title, minor_words=''):
+# #     title = title.capitalize().split()
+# #     minor_words = minor_words.lower().split()
+# #     return ' '.join([word if word in minor_words else word.capitalize() for word in title])
+
+# # # print(title_case('THE WIND IN THE WILLOWS', 'the In'))
+# # print(title_case('a clash of KINGS', 'a an the of'))
+
+# # ' '.join(word if word in minor_words else word.capitalize() for word in title)
+# # ' '.join([word if word in minor_words else word.capitalize() for word in title])
+
+
+# def groupAnagrams(strs):
+#     all_count = []
+
+#     for word in strs:
+#         all_count.append({})
+#         j = 0
+#         print(f"new word: {word}. j = {j}")
+
+#         for i in range(len(word)):
+#             all_count[j][word[i]] = 1 + all_count[j].get(word[i], 0)
+#             print(all_count)
+
+#         j += 1
     
-    # sort odds list
-    odds.sort()
+#     return all_count
 
-    # loop thru arr again, adding back in odd nums
-    odd_i = 0
-    for i in range(len(arr)):
-        if arr[i] == 1:
-            arr[i] = odds[odd_i]
-            odd_i += 1
+# def groupAnagrams(strs):
+#     all_count = []
+#     word_idx = 0
 
-    return arr
+#     for word in strs:
+#         all_count.append({})
+#         for i in range(len(word)):
+#             all_count[word_idx][word[i]] = 1 + all_count[word_idx].get(word[i], 0)
 
-
-def sort_array(arr):
-    odds = sorted((num for num in arr if num % 2 != 0), reverse=True)
-    return [num if num % 2 == 0 else odds.pop() for num in arr]
+#         word_idx += 1
     
-    # find odds and add to odds list
-    for i in range(len(arr)): 
-        if arr[i] % 2 != 0:
-            odds.append(arr[i])
-            arr[i] = 1
+#     for i in range(len(all_count)):
+#         for j in range(len(all_count[i])):
+#             if all_count[i] != dicti
+
+# print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+#     [
+    # {'e': 1, 'a': 1, 't': 1}, 
+    # {'t': 1, 'e': 1, 'a': 1}, 
+    # {'t': 1, 'a': 1, 'n': 1}, 
+    # {'a': 1, 't': 1, 'e': 1}, 
+    # {'n': 1, 'a': 1, 't': 1}, 
+    # {'b': 1, 'a': 1, 't': 1}
+    # ]
+
+def to_dictionary(detects):
+    result = {}
+
+    for i, detect in enumerate(detects):
+        result[detect] = i
+
+    return result
+
+# def to_dictionary(detects):
+#     return{detect: i for i, detect in enumerate(detects)}
+
+# print(to_dictionary(["Sherlock Holmes", "Hercule Poirot", "Nancy Drew"]))
+
+def length_counts(countries):
+    result = {}
+
+    for country in countries:
+        result[len(country)] = 1 + result.get(len(country), 0)
+
+    return result
+
+# def length_counts(countries):
+#     return {len(country): countries.count(country) for country in set(countries)}
     
-    # sort odds list
-    odds.sort()
-
-    # loop thru arr again, adding back in odd nums
-    odd_i = 0
-    for i in range(len(arr)):
-        if arr[i] == 1:
-            arr[i] = odds[odd_i]
-            odd_i += 1
-
-    return arr
-
-# print(sort_array([7, 1]))
-# print(sort_array([5, 8, 6, 3, 4, 1, 1, 7]))
-print(sort_array([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]))
-
-
-
-def sort_array(arr):
-    odds = sorted((num for num in arr if num % 2 != 0), reverse=True)
-    return [num if num % 2 == 0 else odds.pop() for num in arr]
-
-
-def sort_array(arr):
-    odds = []
-    
-    # loop over input arr, and copy odds to odds list
-    for i in range(len(arr)): 
-        if arr[i] % 2 != 0:
-            odds.append(arr[i])
-    
-    # sort the odds list
-    odds.sort()
-
-    # loop over arr again, adding odds back in
-    odds_idx = 0
-    for i in range(len(arr)):
-        if arr[i] % 2 != 0:
-            arr[i] = odds[odds_idx]
-            odds_idx += 1
-
-    return arr
-
-
-
-
-
-
+print(length_counts(["Brazil", "Venezuela", "Argentina", "Ecuador", "Bolivia", "Peru"]))
