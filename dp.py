@@ -1,177 +1,214 @@
-# # # def is_anagram(str1, str2):
-# # #     return sorted(str1.lower()) == sorted(str2.lower())
-
-
-# # # def is_anagram(str1, str2):
-# # #     if len(str1) != len(str2):
-# # #         return False
+# # # def persistence(num): # 999
+# # #     # if num < 10:
+# # #     #     return 0
     
-# # #     str1 = str1.lower()
-# # #     str2 = str2.lower()
-# # #     str1_count, str2_count = {}, {}
+# # #     iter = str(num)    # '999'
+# # #     result = 0
+
+# # #     while len(iter) > 1:
+# # #         product = 1
+# # #         for digit in iter:
+# # #             product *= int(digit) # 729
+# # #         iter = str(product)
+# # #         result += 1
     
-# # #     for i in range(len(str1)):
-# # #         str1_count[str1[i]] = 1 + str1_count.get(str1[i], 0)
-# # #         str2_count[str2[i]] = 1 + str2_count.get(str2[i], 0)
+# # #     return result
 
-# # #     for char in str1:
-# # #         if str1_count[char] != str2_count.get(char, 0):
-# # #             return False
-        
-# # #     return True
-
-# # # # def remove_exclamation_marks(s):
-# # # #     s.replace('!', '')
-
-# # # # def remove_exclamation_marks(s):
-# # # #     return ''.join(char for char in s if char != '!')
-
-# # # # def remove_exclamation_marks(s):
-# # # #     return s.replace('!', '')
-
-# # # def remove_exclamation_marks(s):
-# # #     return ''.join(char for char in s if char != '!')
-
-# # # def remove_exclamation_marks(s):
-# # #     return s.replace('!', '')
-
-
-# # # def find_average(numbers):
-# # #     return sum(numbers) / len(numbers)
-
-# # # def find_average(numbers):
-# # #     print(numbers)
-# # #     return sum(numbers)/len(numbers)
-
-# # # print(find_average([]))
-
-# # def title_case(title, minor=''):
-# #     title.title()
-# #     arr = minor.lower().split(' ')
-# #     for word in arr:
-# #         if word in title.lower():
-# #             title.replace(word, word.lower())
-
-# #     return title
-
-
-# # def title_case(title, minor=''):
-# #     low_title = title.lower()
-# #     low_minor = minor.lower()
-
-# #     arr = low_minor.split(' ')
+# # def diamond(n):
+# #     if n < 1 or n % 2 == 0:
+# #         return None
     
-# #     for word in arr:
-# #         if word not in low_title:
-# #             low_title.replace(word, word.title())
+# #     ring = ''
+# #     spaces = n // 2
+# #     diamonds = 1
 
-# #     return title
+# #     for i in range(n//2 + 1):
+# #         ring += (spaces * ' ') + (diamonds * '*') + '\n'
+# #         spaces -= 1
+# #         diamonds += 2
 
-# # def title_case(title, minor=''):
-# #     title = title.lower().split()
-# #     minor = minor.lower().split()
+# #     spaces += 2
+# #     diamonds -= 4
 
-# #     for i in range(len(title)):
-# #         if i == 0 or title[i] not in minor:
-# #             title[i] = title[i].title()
+# #     for j in range(n//2):
+# #         ring += (spaces * ' ') + (diamonds * '*') + '\n'
+# #         spaces += 1
+# #         diamonds -= 2
+
+# #     return ring
+
+
+# # def diamond(n):
+# #     if n < 1 or n % 2 == 0:
+# #         return None
     
-# #     return ' '.join(title)
+# #     spaces = 0
+# #     diamonds = n
+# #     ring = (n * '*') + '\n'
 
-# # # print(title_case('THE WIND IN THE WILLOWS', 'The In'))
+# #     while diamonds > 1:
+# #         spaces += 1
+# #         diamonds -= 2
+# #         row = (spaces * ' ') + (diamonds * '*') + '\n'
+# #         ring = row + ring + row
 
-# # # [a clash of KINGS]    [a an the of]
+# #     return ring
 
 
-
-# # def title_case(title, minor=''):
-
-# #     title = title.lower().split()   # all words are lowercased and in list
-# #     minor = minor.lower().split()   
-
-# #     for i in range(len(title)): # loop over title words
-# #         if i == 0 or title[i] not in minor: # if not first word or a minor word: capitalize
-# #             title[i] = title[i].title()
+# # def diamond(n):
+# #     if n % 2 == 0 or n < 1:         #even or negative input
+# #         return None
     
-# #     return ' '.join(title)  # return as string
-
-
-
-# # def title_case(title, minor_words=''):
-# #     title = title.capitalize().split()
-# #     minor_words = minor_words.lower().split()
-# #     return ' '.join([word if word in minor_words else word.capitalize() for word in title])
-
-# # # print(title_case('THE WIND IN THE WILLOWS', 'the In'))
-# # print(title_case('a clash of KINGS', 'a an the of'))
-
-# # ' '.join(word if word in minor_words else word.capitalize() for word in title)
-# # ' '.join([word if word in minor_words else word.capitalize() for word in title])
-
-
-# def groupAnagrams(strs):
-#     all_count = []
-
-#     for word in strs:
-#         all_count.append({})
-#         j = 0
-#         print(f"new word: {word}. j = {j}")
-
-#         for i in range(len(word)):
-#             all_count[j][word[i]] = 1 + all_count[j].get(word[i], 0)
-#             print(all_count)
-
-#         j += 1
+# #     ring = (n * '*') + ('\n')       # create middle row of diamond
+# #     spaces = 1
+# #     diamonds = n - 2
     
-#     return all_count
+# #     while diamonds > 0:
+# #         row = (spaces * ' ') + (diamonds * '*') + ('\n') 
+# #         ring = row + ring + row     # add row above and below
+# #         spaces += 1
+# #         diamonds -= 2
 
-# def groupAnagrams(strs):
-#     all_count = []
-#     word_idx = 0
+# #     return ring
 
-#     for word in strs:
-#         all_count.append({})
-#         for i in range(len(word)):
-#             all_count[word_idx][word[i]] = 1 + all_count[word_idx].get(word[i], 0)
 
-#         word_idx += 1
+
+# # # print(diamond(1))
+# # print(diamond(11))
+# # # "  *\n ***\n*****\n'
+
+# # def sum_of_minimums(numbers):
+# #     total = 0
+# #     for list in numbers:
+# #         total += min(list)
+
+# #     return total
+
+# #     return sum(min(row) for row in numbers)
+
+
+# # def add_length(str_):
+# #     arr = str_.split()
+
+# #     for i in range(len(arr)):
+# #         arr[i] = arr[i] + ' ' + str(len(arr[i]))
+
+# #     return arr
+
+
+# def add_length(str_):
+#     arr = str_.split()
+#     return [f"{arr[i]} {str(len(arr[i]))}" for i in range(len(arr))]
+
+
+
+#     arr = str_.split()
+#     return [f"{arr[i]} {str(len(arr[i]))}" for i in range(len(arr))]
     
-#     for i in range(len(all_count)):
-#         for j in range(len(all_count[i])):
-#             if all_count[i] != dicti
 
-# print(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+# # def add_length(str_):
+# #     return [f"{str_.split()[i]} {str(len(str_.split()[i]))}" for i in range(len(str_.split()))]
 
-#     [
-    # {'e': 1, 'a': 1, 't': 1}, 
-    # {'t': 1, 'e': 1, 'a': 1}, 
-    # {'t': 1, 'a': 1, 'n': 1}, 
-    # {'a': 1, 't': 1, 'e': 1}, 
-    # {'n': 1, 'a': 1, 't': 1}, 
-    # {'b': 1, 'a': 1, 't': 1}
-    # ]
+# def add_length(str_):
+#     return [f"{word} {len(word)}" for word in str_.split()]
 
-def to_dictionary(detects):
-    result = {}
+# # "apple ban" --> ["apple 5", "ban 3"]
+# print(add_length('apple ban'))
 
-    for i, detect in enumerate(detects):
-        result[detect] = i
+
+def sum_dig_pow(a, b):
+    result = []
+
+    for i in range(a, b+1):
+
+        num_of_digits = len(str(i))
+        # print(num_of_digits)
+        total = 0
+        j = 1
+
+        for digit in str(i):    # '8'
+            # print(str(i), digit)
+            # print(f"j: {j}")
+            total += int(digit) ** j
+            print(f"total: {total}")
+            j += 1
+
+        if total == i:
+            # print(f"i: {i}, Total: {total}")
+            result.append(i)
+
+        # print(total)    
 
     return result
 
-# def to_dictionary(detects):
-#     return{detect: i for i, detect in enumerate(detects)}
+print(sum_dig_pow(88, 141))
+# 89, 135
 
-# print(to_dictionary(["Sherlock Holmes", "Hercule Poirot", "Nancy Drew"]))
+def sum_dig_pow(a, b):
+    result = []
 
-def length_counts(countries):
-    result = {}
+    for i in range(a, b+1):
+        total = 0
+        j = 1
 
-    for country in countries:
-        result[len(country)] = 1 + result.get(len(country), 0)
+        for digit in str(i):    
+            total += int(digit) ** j
+            j += 1
+
+        if total == i:
+            result.append(i)
 
     return result
 
-# def length_counts(countries):
-#     return {len(country): countries.count(country) for country in set(countries)}
+# print(sum_dig_pow(5, 141))
+
+
+
+def sum_dig_pow(a, b):
+    result = []
+
+    for num in range(a, b+1):
+        total = 0
+        exponent = 1
+
+        for digit in str(num):    
+            total += int(digit) ** exponent
+            exponent += 1
+
+        if num == total:
+            result.append(num)
+
+    return result
+
+
+def sum_dig_pow(a, b):
+    return [num for num in range(a, b+1) if sum(int(d) ** i for i, d in enumerate(str(num), 1)) == num]
+
+                            #   (1, '1'), (2, '3'), (3, '5') for 135    1+9+125
+
+
+def sum_dig_pow(a, b):
+    return [num for num in range(a, b+1) if sum(int(digit) ** idx for idx, digit in enumerate(str(num), 1)) == num]
+
+def sum_dig_pow(a, b):
+    result = []
+
+    for num in range(a, b+1):
+        total = 0
+
+        for idx, digit in enumerate(str(num), 1):
+            total += int(digit) ** idx
+
+        if total == num:
+            result.append(num)
+
+    return result
+
+# one-liner:
+# def sum_dig_pow(a, b):
+#     return [num for num in range(a, b+1) if sum(int(digit) ** idx for idx, digit in enumerate(str(num), 1)) == num]
+
+print(sum_dig_pow(5, 145))
     
-print(length_counts(["Brazil", "Venezuela", "Argentina", "Ecuador", "Bolivia", "Peru"]))
+
+
