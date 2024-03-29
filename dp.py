@@ -1,214 +1,241 @@
-# # # def persistence(num): # 999
-# # #     # if num < 10:
-# # #     #     return 0
-    
-# # #     iter = str(num)    # '999'
-# # #     result = 0
-
-# # #     while len(iter) > 1:
-# # #         product = 1
-# # #         for digit in iter:
-# # #             product *= int(digit) # 729
-# # #         iter = str(product)
-# # #         result += 1
-    
-# # #     return result
-
-# # def diamond(n):
-# #     if n < 1 or n % 2 == 0:
-# #         return None
-    
-# #     ring = ''
-# #     spaces = n // 2
-# #     diamonds = 1
-
-# #     for i in range(n//2 + 1):
-# #         ring += (spaces * ' ') + (diamonds * '*') + '\n'
-# #         spaces -= 1
-# #         diamonds += 2
-
-# #     spaces += 2
-# #     diamonds -= 4
-
-# #     for j in range(n//2):
-# #         ring += (spaces * ' ') + (diamonds * '*') + '\n'
-# #         spaces += 1
-# #         diamonds -= 2
-
-# #     return ring
-
-
-# # def diamond(n):
-# #     if n < 1 or n % 2 == 0:
-# #         return None
-    
-# #     spaces = 0
-# #     diamonds = n
-# #     ring = (n * '*') + '\n'
-
-# #     while diamonds > 1:
-# #         spaces += 1
-# #         diamonds -= 2
-# #         row = (spaces * ' ') + (diamonds * '*') + '\n'
-# #         ring = row + ring + row
-
-# #     return ring
-
-
-# # def diamond(n):
-# #     if n % 2 == 0 or n < 1:         #even or negative input
-# #         return None
-    
-# #     ring = (n * '*') + ('\n')       # create middle row of diamond
-# #     spaces = 1
-# #     diamonds = n - 2
-    
-# #     while diamonds > 0:
-# #         row = (spaces * ' ') + (diamonds * '*') + ('\n') 
-# #         ring = row + ring + row     # add row above and below
-# #         spaces += 1
-# #         diamonds -= 2
-
-# #     return ring
-
-
-
-# # # print(diamond(1))
-# # print(diamond(11))
-# # # "  *\n ***\n*****\n'
-
-# # def sum_of_minimums(numbers):
+# # def duplicate_count(text):
+# #     text = text.lower()
+# #     counter = {}
 # #     total = 0
-# #     for list in numbers:
-# #         total += min(list)
+
+# #     for char in text:
+# #         if char in counter and counter[char] == 1:
+# #             total += 1
+# #         counter[char] = counter.get(char, 0) + 1
 
 # #     return total
 
-# #     return sum(min(row) for row in numbers)
 
 
-# # def add_length(str_):
-# #     arr = str_.split()
+# def duplicate_count(text):
+#     text = text.lower()
+#     counter = {}
+#     total = 0
 
-# #     for i in range(len(arr)):
-# #         arr[i] = arr[i] + ' ' + str(len(arr[i]))
+#     for char in text:
+#         counter[char] = counter.get(char, 0) + 1
+#         if counter[char] == 2:
+#             total += 1
 
-# #     return arr
-
-
-# def add_length(str_):
-#     arr = str_.split()
-#     return [f"{arr[i]} {str(len(arr[i]))}" for i in range(len(arr))]
-
+#     return total
 
 
-#     arr = str_.split()
-#     return [f"{arr[i]} {str(len(arr[i]))}" for i in range(len(arr))]
+# # def duplicate_count(text): 
+# #     text = text.lower()
+# #     total = 
+
+# #     for char in set(text):
+# #         if text.count(char) > 1:
+# #             total += 1
+
+# #     return total
+
+# # def duplicate_count(text): 
+# #     return len([char for char in set(text.lower()) if text.lower().count(char) > 1])
+
+# print(duplicate_count("Indivisibilities"))
+
+# # def duplicate_count(s):
+# #   return len([c for c in set(s.lower()) if s.lower().count(c)>1])
+
+# def likes(names):
+#     if len(names) == 0:
+#         return "no one likes this"
+#     elif len(names) == 1:
+#         return f"{names[0]} likes this"
+#     elif len(names) == 2:
+#         return f"{names[0]} and {names[1]} like this"
+#     elif len(names) == 3:
+#         return f"{names[0]}, {names[1]} and {names[2]} like this"
+#     elif len(names) > 3:
+#         return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
+
+# geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"]
+
+# def goose_filter(birds):
+#     return [bird for bird in birds if bird not in geese]
+
+# def solve(s):
+#     upper = 0
+#     lower = 0
+
+#     for char in s:
+#         if char.isupper():
+#             upper += 1
+#         else:
+#             lower += 1
+
+#     return s.lower() if lower >= upper else s.upper()
+
+
+# def sort_my_string(s):
+#     evens = []
+#     odds = []
+    
+#     for i, char in enumerate(s):
+#         if i % 2 == 0:
+#             evens.append(char)
+#         else:
+#             odds.append(char)
+            
+#     return f"{''.join(evens)} {''.join(odds)}"
+
+
+
+
+
+
+
+
+# def sort_my_string(s):
+#     return f"{s[::2]} {s[1::2]}"
+
+
+# def sort_my_string(s):
+#     evens = ''
+#     odds = ''
+    
+#     for i in range(len(s)):
+#         if i % 2 == 0:
+#             evens += s[i]
+#         else:
+#             odds += s[i]
+            
+#     return f"{evens} {odds}"
+
+
+# def sort_my_string(s):
+#     evens = []
+#     odds = []
+    
+#     for i in range(len(s)):
+#         if i % 2 == 0:
+#             evens.append(s[i])
+#         else:
+#             odds.append(s[i])
+            
+#     return f"{''.join(evens)} {''.join(odds)}"
+
+
+def pushDominoes(dominoes):
+    result = ''
+    pairs = [(-1, 'L')]                 # pre-populate with a left boundary
+
+    for i, direction in enumerate(dominoes):
+        if direction == 'R' or direction == 'L':
+            pairs.append((i, direction))
+    pairs.append((len(dominoes), 'R'))    # populate with a right boundary
+
+    for i in range(len(pairs) - 1):     # iterate to compare directions in neighbor tuples      5
+        a = pairs[i][1]
+        b = pairs[i+1][1]
+        ai = pairs[i][0]
+        bi = pairs[i+1][0]
+
+        if a == 'L' and b == 'L':        
+            result += 'L' * (bi - ai)
+
+        elif a == 'L' and b == 'R':
+            result += '.' * (bi - ai - 1) + 'R'
+
+        elif a == 'R' and b == 'R':
+            result += 'R' * (bi - ai)
+
+        elif a == 'R' and b == 'L':
+            if (bi - ai) % 2 == 0:      # '.' in middle
+                result += 'R' * ((bi - ai) // 2 - 1) + '.' + 'L' * ((bi - ai) // 2)
+            else:                       # no '.' in middle
+                result += 'R' * ((bi - ai) // 2) + 'L' * ((bi - ai) // 2 + 1)
+
+    return result[:-1]
+
+#   .L.R...LR..L..    [(-1, 'L'), (1, 'L'), (3, 'R'), (7, 'L'), (8, 'R'), (11, 'L'), (14, 'R')]
+#   LL.RR.LLRRLL..
+# print(pushDominoes('.L.R...LR..L..'))
+#   012345678
+#   .LL.R..R.L.
+#   LLL.RRRR.L.
+# print(pushDominoes(".L.R...LR...L.."))
+#                  "LL.RR.LLRRLL.."
+#                  "LL.RR.LLRL.."
+# R..L -> R(RLL)
+# 0123 -> 1R, 2L
+
+#   L       012345678
+        #   ..L..R.RL
+
+#   L       012345678
+        #   ..R..L.RL
+
+#   L       012345678
+        #   ..R..LRL  --> add 1/2 - 1 Rs, add 1/2 Ls
+#             R-.-L
+
+
+class Solution:
+    def pushDominoes(self, dominoes: str) -> str:
+        result = ''
+        pairs = [(-1, 'L')]                     # pre-populate with a left boundary
+
+        for i, direction in enumerate(dominoes):
+            if direction == 'R' or direction == 'L':
+                pairs.append((i, direction))
+        pairs.append((len(dominoes), 'R'))      # populate with a right boundary
+
+        for i in range(len(pairs) - 1):         # loop & compare directions in neighbor tuples
+            a, b, ai, bi = pairs[i][1], pairs[i+1][1], pairs[i][0], pairs[i+1][0]
+
+            if a == 'L' and b == 'L':        
+                result += 'L' * (bi - ai)
+
+            elif a == 'L' and b == 'R':
+                result += '.' * (bi - ai - 1) + 'R'
+
+            elif a == 'R' and b == 'R':
+                result += 'R' * (bi - ai)
+
+            elif a == 'R' and b == 'L':
+                if (bi - ai) % 2 == 0:          # even diff (needs '.' in middle)
+                    result += 'R' * ((bi - ai) // 2 - 1) + '.' + 'L' * ((bi - ai) // 2)
+                else:                           # odd diff
+                    result += 'R' * ((bi - ai) // 2) + 'L' * ((bi - ai) // 2 + 1)
+
+        return result[:-1]                      # remove fake right boundary
     
 
-# # def add_length(str_):
-# #     return [f"{str_.split()[i]} {str(len(str_.split()[i]))}" for i in range(len(str_.split()))]
-
-# def add_length(str_):
-#     return [f"{word} {len(word)}" for word in str_.split()]
-
-# # "apple ban" --> ["apple 5", "ban 3"]
-# print(add_length('apple ban'))
 
 
-def sum_dig_pow(a, b):
-    result = []
+    class Solution:
+    def pushDominoes(self, dominoes: str) -> str:
+        result = ''
+        pairs = [(-1, 'L')]                     # pre-populate with a left boundary
 
-    for i in range(a, b+1):
+        for i, direction in enumerate(dominoes):
+            if direction == 'R' or direction == 'L':
+                pairs.append((i, direction))
+        pairs.append((len(dominoes), 'R'))      # populate with a right boundary
 
-        num_of_digits = len(str(i))
-        # print(num_of_digits)
-        total = 0
-        j = 1
+        for i in range(len(pairs) - 1):         # loop & compare directions in neighbor tuples
+            a, b, ai, bi = pairs[i][1], pairs[i+1][1], pairs[i][0], pairs[i+1][0]
 
-        for digit in str(i):    # '8'
-            # print(str(i), digit)
-            # print(f"j: {j}")
-            total += int(digit) ** j
-            print(f"total: {total}")
-            j += 1
+            if a == 'L' and b == 'L':        
+                result += 'L' * (bi - ai)
 
-        if total == i:
-            # print(f"i: {i}, Total: {total}")
-            result.append(i)
+            elif a == 'L' and b == 'R':
+                result += '.' * (bi - ai - 1) + 'R'
 
-        # print(total)    
+            elif a == 'R' and b == 'R':
+                result += 'R' * (bi - ai)
 
-    return result
+            elif a == 'R' and b == 'L':
+                if (bi - ai) % 2 == 0:          # even diff (needs '.' in middle)
+                    result += 'R' * ((bi - ai) // 2 - 1) + '.' + 'L' * ((bi - ai) // 2)
+                else:                           # odd diff
+                    result += 'R' * ((bi - ai) // 2) + 'L' * ((bi - ai) // 2 + 1)
 
-print(sum_dig_pow(88, 141))
-# 89, 135
-
-def sum_dig_pow(a, b):
-    result = []
-
-    for i in range(a, b+1):
-        total = 0
-        j = 1
-
-        for digit in str(i):    
-            total += int(digit) ** j
-            j += 1
-
-        if total == i:
-            result.append(i)
-
-    return result
-
-# print(sum_dig_pow(5, 141))
-
-
-
-def sum_dig_pow(a, b):
-    result = []
-
-    for num in range(a, b+1):
-        total = 0
-        exponent = 1
-
-        for digit in str(num):    
-            total += int(digit) ** exponent
-            exponent += 1
-
-        if num == total:
-            result.append(num)
-
-    return result
-
-
-def sum_dig_pow(a, b):
-    return [num for num in range(a, b+1) if sum(int(d) ** i for i, d in enumerate(str(num), 1)) == num]
-
-                            #   (1, '1'), (2, '3'), (3, '5') for 135    1+9+125
-
-
-def sum_dig_pow(a, b):
-    return [num for num in range(a, b+1) if sum(int(digit) ** idx for idx, digit in enumerate(str(num), 1)) == num]
-
-def sum_dig_pow(a, b):
-    result = []
-
-    for num in range(a, b+1):
-        total = 0
-
-        for idx, digit in enumerate(str(num), 1):
-            total += int(digit) ** idx
-
-        if total == num:
-            result.append(num)
-
-    return result
-
-# one-liner:
-# def sum_dig_pow(a, b):
-#     return [num for num in range(a, b+1) if sum(int(digit) ** idx for idx, digit in enumerate(str(num), 1)) == num]
-
-print(sum_dig_pow(5, 145))
-    
-
-
+        return result[:-1]                      # remove fake right boundary
