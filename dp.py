@@ -1,76 +1,85 @@
-# # def solution(s):
-# #     return ''.join(' ' + char if char.isupper() else char for char in s)
+# def chromosome_check(chromosome):
+#     sex = 'son' if 'Y' in chromosome else 'daughter'
+#     return f"Congratulations! You're going to have a {sex}." 
 
-# # def solution(s):
-# #     result = ''
+# for num in range(1, 100):
+#     print(num * 2)
 
-# #     for char in s:
-# #         if char.isupper():
-# #             result += ' '
-# #         result += char
-    
-# #     return result
+# lst = [1, 3, 7, 15]
+# index = 0
 
+# i = 0
+# while i < len(lst):
+#     print(lst[i])
+#     i += 1
 
-# # def solution(s):
-# #     return ''.join(f" {char}" if char == char.upper() else char for char in [*s])
+# friends = ['Sarah', 'John', 'Hannah', 'Dave']
 
-# # def solution(s):
-# #     s = [*s]
-# #     result = []
+# for friend in friends:
+#     print(f"Hi, {friend}")
 
-# #     for char in s:
-# #         if char == char.upper():
-# #             result.append(f" {char}")
-# #         else:
-# #             result.append(char)14
+# cities = ['Istanbul', 'Los Angeles', 'Tokyo', None,
+#           'Vienna', None, 'London', 'Beijing', None]
 
-# #     return ''.join(result)
+# for city in cities:
+#     if not city:
+#         continue
+#     print(len(city))
 
+# while True:
+#     print("and on")
+#     break
 
+# fish_list = ['Dory', 'Marlin', 'Gill', 'Nemo', 'Bruce']
 
+# for fish in fish_list:
+#     print(fish)
+#     if fish == 'Nemo':
+#         break
 
+# while True:
+#     print('Should I stop looping?')
+#     answer = input()
+#     if answer == 'Yes':
+#         break
 
-# def multiplication_table(size):
-#     return [[i*j for j in range(1, size+1)] for i in range(1, size+1)]
+# def factorial(n):
+#     result = 1
 
-
-# def multiplication_table(size):
-#     result = []
-    
-#     for i in range(1, size+1):
-#         row = []
-#         for j in range(1, size+1):
-#             row.append(i*j)
-#         result.append(row)
-
-#     return result
-
-
-# def multiplication_table(size):
-#     result = [[] * size for i in range(size)]
-    
-#     for i in range(size):
-#         for j in range(size):
-#             result[i].append((i+1) * (j+1))
+#     while n > 1:
+#         result *= n
+#         n -= 1
 
 #     return result
 
-# print(multiplication_table(4))
 
+# def factorial(n):
+#     result = 1
 
-toppings = ["pepperoni", "pineapple", "cheese", "sausage", "olives", "anchovies", "mushrooms"]
+#     for i in range(1, n+1):
+#         result *= i
 
-prices = [2,6,1,3,2,7,2]
+#     return result
 
-num_two_dollar_slices = prices.count(2)
-print(num_two_dollar_slices)
+# print(factorial(5))
 
-num_pizzas = len(toppings)
-print(f"We sell {num_pizzas} different kinds of pizza!")
+def whatday(num):
+    match num:
+        case 1:
+            return 'Sunday'
+        case 2:
+            return 'Monday'
+        case 3:
+            return 'Tuesday'
+        case 4:
+            return 'Wednesday'
+        case 5:
+            return 'Thursday'
+        case 6:
+            return 'Friday'
+        case 7:
+            return 'Saturday'
+        case default:
+            "Wrong, please enter a number between 1 and 7"
 
-pizza_and_prices = []
-for i in range(len(toppings)):
-  pizza_and_prices.append([prices[i], toppings[i]])
-
-print(pizza_and_prices)
+print(whatday(8))
